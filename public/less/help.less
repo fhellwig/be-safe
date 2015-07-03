@@ -1,0 +1,29 @@
+@import "_colors.less";
+/* -- */
+
+.user-guide {
+    counter-reset: sectionCounter;
+    h1 {
+        color: #359BF2;
+        color: @be-blue-light;
+        font-size: 2.0em;
+        font-weight: bold;
+        counter-reset: subsectionCounter;
+    }
+    h1::before {
+        counter-increment: sectionCounter;
+        content: counter(sectionCounter) ". ";
+    }
+    h2 {
+        font-size: 1.4em;
+        font-weight: bold;
+    }
+    h2::before {
+        counter-increment: subsectionCounter;
+        content: counter(sectionCounter) "." counter(subsectionCounter) " ";
+    }
+    .option {
+        font-weight: bold;
+        font-style: italic;
+    }
+}

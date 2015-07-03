@@ -1,0 +1,34 @@
+<form novalidate name="reportForm">
+    <div class="modal-header">
+        <h3 class="modal-title">My Adverse Reaction</h3>
+    </div>
+    <div class="modal-body">
+        <p class="form-group">
+            <label for="complaint">Complaint</label>
+            <br/>
+            <textarea required name="complaint" class="form-control input-xlarge" ng-model="vm.complaint"></textarea>
+        </p>
+        <p class="form-group">
+            <label class="checkbox-inline">
+                <input type="checkbox" name="contact" ng-model="vm.checked"> I am willing to be contacted.
+            </label>
+        </p>
+        <p class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" name="email" class="form-control" ng-model="vm.email" ng-disabled="!vm.checked" ng-required="vm.checked">
+        </p>
+        <p>
+            <em>BE Safe will not store any user information in submitting this form unless you choose to provide that information.</em>
+        </p>
+        <p class="small">
+            You can also use the <a href="download/fda/Form-3500B.pdf" target="_blank">MedWatch Consumer Voluntary Reporting Form</a> (PDF).
+        </p>
+    </div>
+    <div class="modal-footer">
+        <p style="float: left">
+            {{vm.date | date:'M/d/yyyy'}}
+        </p>
+        <button type="submit" class="btn btn-primary" ng-disabled="reportForm.complaint.$invalid || vm.checked && reportForm.email.$invalid" ng-click="vm.report()">Report</button>
+        <button class="btn btn-default" ng-click="vm.cancel()">Cancel</button>
+    </div>
+</form>

@@ -1,0 +1,29 @@
+@import "_colors.less";
+/*------------------------------------*/
+
+.be-safe-carousel {
+    .carousel-indicators {
+        display: none;
+    }
+    .carousel-inner {
+        height: 200px;
+    }
+    .carousel-control {
+        background: none;
+        color: @be-blue-light;
+        &:hover {
+            color: @be-blue-dark;
+        }
+        .glyphicon {
+            top: 82px;
+            /* improve vertical alignment */
+        }
+    }
+    img {
+        cursor: pointer;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 100px !important;
+    }
+}

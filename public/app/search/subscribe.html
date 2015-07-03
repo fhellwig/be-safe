@@ -1,0 +1,18 @@
+<form novalidate name="subscriptionForm">
+    <div class="modal-header">
+        <h3 class="modal-title">Subscribe</h3>
+    </div>
+    <div class="modal-body">
+        <p>
+            Please enter your email address. You will be notified of new items matching the results in your latest query. To unsubscribe from all notifications, please click the unsubscribe link in any BE Safe email you receive.
+        </p>
+        <p class="form-group">
+            <label for="email-address">Email Address</label>
+            <input type="email" required name="email-address" class="form-control" ng-model="vm.email">
+        </p>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" ng-disabled="subscriptionForm.$invalid" ng-click="vm.subscribe()">Subscribe</button>
+        <button class="btn btn-default" ng-click="vm.cancel()">Cancel</button>
+    </div>
+</form>
