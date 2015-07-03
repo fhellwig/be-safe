@@ -32,3 +32,6 @@ bower_components
 
 # local config (api keys & credentials )
 config/local.js
+
+# database
+data/besafe.db
