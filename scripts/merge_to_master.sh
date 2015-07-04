@@ -5,4 +5,5 @@
 #******************************************
 
 echo "called here"
-git push origin master
+git show-ref
+git push origin HEAD:master
