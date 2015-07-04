@@ -7,7 +7,7 @@ machine:
     version: 0.12.0
 
   post:
-    - cd Be-Safe
+    - cd be-safe
     - npm start:
        background: true
 
@@ -15,7 +15,7 @@ dependencies:
   override:
     - sudo apt-get install -y build-essential libssl-dev libffi-dev libxml2-dev libxslt-dev python-dev python-pip
     - sudo pip install awscli
-    
+
 deployment:
   hub:
     branch: dev
