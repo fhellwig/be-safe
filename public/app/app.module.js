@@ -26,11 +26,6 @@
         $urlRouterProvider.otherwise('/');
 
         jsendProvider.setRelativeBase('/api');
-        jsendProvider.setResponseCallback(function (response) {
-            if (response.status === 'error') {
-                alert(response.message);
-            }
-        });
     }
 
     module.config(config);
