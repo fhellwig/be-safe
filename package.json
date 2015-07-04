@@ -1,6 +1,6 @@
 {
     "name": "be-safe",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "description": "Prototype application developed in response to RFQ 4QTFHS150004 (GSA/18F)",
     "private": true,
     "scripts": {
