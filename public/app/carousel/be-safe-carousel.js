@@ -1,6 +1,6 @@
 (function (module) {
 
-    function beSafeCarousel($rootScope, $state, $stateParams, $animate, jsend) {
+    function beSafeCarousel($rootScope, $state, $stateParams, $animate, besafe) {
         $animate.enabled(true);
         var self = this;
         var images = null;
@@ -49,8 +49,8 @@
             $scope = scope;
             scope.interval = interval = scope.seconds * 1000;
             if (images === null) {
-                jsend('/carousel').get().then(function (response) {
-                    images = response.data;
+                besafe.images().then(function (results) {
+                    images = results;
                     if (images.length > 0) {
                         images[0].active = true;
                     }
