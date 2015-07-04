@@ -22,11 +22,11 @@ deployment:
     commands:
       - docker info
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - docker build -t buchananedwards/be-safe:$CIRCLE_SHA1 .
+      - docker build -t buchananedwards/be-safe .
       - docker push buchananedwards/be-safe
       - ./scripts/merge_to_master.sh
   elasticbeanstalk:
     branch: master
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - ./scripts/deploy.sh $CIRCLE_SHA1
+      - ./scripts/deploy.sh
