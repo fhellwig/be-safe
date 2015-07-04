@@ -1,7 +1,7 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Image": {
-    "Name": "buchananedwards/be-safe:<TAG>",
+    "Name": "buchananedwards/be-safe:latest",
     "Update": "true"
   },
   "Ports": [
