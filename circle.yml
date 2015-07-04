@@ -18,7 +18,7 @@ dependencies:
 
 deployment:
   hub:
-    branch: dev
+    branch: develop
     commands:
       - docker info
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
