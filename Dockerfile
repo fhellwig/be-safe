@@ -14,7 +14,7 @@ RUN git config --global user.email "be-safe@buchanan-edwards.com"
 RUN git config --global user.name "BE Safe User"
 
 #Clone the most current branch of the github repo
-RUN git clone -b dev https://github.com/brandtheisey/BE-Safe.git besafe/
+RUN git clone -b develop https://github.com/brandtheisey/be-safe.git besafe/
 
 #Set up the application's node dependencies
 RUN cd /besafe && npm install -g gulp
