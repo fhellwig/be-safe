@@ -20,4 +20,4 @@ RUN git clone -b develop https://github.com/brandtheisey/be-safe.git besafe/
 RUN cd /besafe && npm install -g gulp
 RUN cd /besafe && npm install
 RUN cd /besafe && gulp app
-CMD ["/bin/bash"]
+RUN cd /besafe && npm start &

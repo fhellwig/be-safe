@@ -9,5 +9,10 @@
       "ContainerPort": "3000"
     }
   ],
-  "Volumes": []
+  "Volumes": [
+    {
+     "ContainerDirectory": "/besafe",
+     "HostDirectory": "/var/app"
+    }
+  ]
 }
