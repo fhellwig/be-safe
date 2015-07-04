@@ -5,9 +5,9 @@ FROM ubuntu:14.04
 EXPOSE 3000
 
 #Prepare the environment
-RUN sudo apt-get -y install curl
+RUN apt-get -y install curl
 RUN curl --silent --location https://deb.nodesource.com/setup_0.12 | sudo bash -
-RUN sudo apt-get -y install nodejs git python2.7 make g++
+RUN apt-get -y install nodejs git python2.7 make g++
 
 #Set up git
 RUN git config --global user.email "be-safe@buchanan-edwards.com"
