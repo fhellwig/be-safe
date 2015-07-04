@@ -81,50 +81,52 @@
         {{vm.response.message}}
     </p>
     <div ng-show="vm.state === vm.states.success">
-        <div class="row">
-            <div class="col-ts-4">
-                <p>
-                    <button class="btn btn-xs btn-primary" ng-click="vm.subscribe()"><span class="glyphicon glyphicon-envelope"></span> Email</button>
-                    <button class="btn btn-xs btn-default" ng-click="vm.clear()"><span class="glyphicon glyphicon-remove"></span> Clear</button>
-                </p>
-            </div>
-            <div class="col-ts-4">
-                <p class="text-center nowrap">
-                    <span ng-show="vm.total() === 0">No Records</span>
-                    <span ng-show="vm.total() === 1">One Record</span>
-                    <span ng-show="vm.total() > 1">Records {{vm.first()}}-{{vm.last()}} of {{vm.total()}}</span>
-                </p>
-            </div>
-            <div class="col-ts-4">
-                <p class="pull-right">
-                    <button class="btn btn-xs btn-default" ng-disabled="vm.atBeginning()" ng-click="vm.prev()"><span class="glyphicon glyphicon-chevron-left"></span> Prev</button>
-                    <button class="btn btn-xs btn-default" ng-disabled="vm.atEnd()" ng-click="vm.next()">Next <span class="glyphicon glyphicon-chevron-right"></span></button>
-                </p>
-            </div>
+        <div style="margin-bottom:20px">
+            <a href ng-click="vm.subscribe()"><span class="glyphicon glyphicon-envelope"></span> Subscribe to Updates</a>
+            <span class="pull-right">
+                <a href ng-click="vm.clear()"><span class="glyphicon glyphicon-remove"></span> Clear</a>
+            </span>
         </div>
-        <table ng-show="vm.state === vm.states.success" class="table">
-            <thead>
+        <p ng-show="vm.response.data.results.length == 0" class="text-danger">
+            <span ng-show="vm.request.type === vm.options.type.recalls">No drug recalls for <span class="text-primary">{{vm.request.brand}}</span> given your current search criteria.</span>
+            <span ng-show="vm.request.type === vm.options.type.events">No adverse reactions for <span class="text-primary">{{vm.request.brand}}</span> given your current search criteria.</span>
+        </p>
+        <div ng-show="vm.response.data.results.length > 0" xxxstyle="color:#999;background-color:#eee">
+            <table style="width:100%;margin-bottom:20px">
                 <tr>
-                    <th style="width:8em">Date</th>
-                    <th ng-show="vm.request.type === vm.options.type.recalls">Drug recalls for {{vm.request.brand}}</th>
-                    <th ng-show="vm.request.type === vm.options.type.events">Adverse reactions to {{vm.request.brand}}</th>
-                    <th class="text-right minwidth">Share</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-show="vm.state === vm.states.success && vm.response.data.results.length == 0">
-                    <td colspan="2" class="text-danger">No results returned for your search.</td>
-                </tr>
-                <tr ng-repeat="r in vm.response.data.results">
-                    <td class="minwidth">{{r.timestamp | timestamp}}</td>
                     <td>
-                        <span ng-if="vm.request.type === 'recalls'">{{r.reason}} <span class="small text-muted">({{r.product}})</span><span ng-if="r.duplicate" class="text-danger"> <b>(Duplicate)</b></span></span>
-                        <span ng-if="vm.request.type === 'events'">{{r | event}}</span>
+                        <button class="btn btn-primary btn-xs" ng-disabled="vm.atBeginning()" ng-click="vm.prev()"><span class="glyphicon glyphicon-chevron-left"></span> Prev</button>
                     </td>
-                    <td class="text-right minwidth">
-                        <span ng-show="vm.shared != r"><a href ng-click="vm.share(r)"><span class="glyphicon glyphicon-share"></span></a>
-                        </span>
-                        <span ng-show="vm.shared == r" class="text-right minwidth">
+                    <td align="center" style="white-space:nowrap">
+                        <span ng-show="vm.total() === 0">No Records</span>
+                        <span ng-show="vm.total() === 1">One Record</span>
+                        <span ng-show="vm.total() > 1">Records {{vm.first()}}-{{vm.last()}} of {{vm.total()}}</span>
+                    </td>
+                    <td align="right">
+                        <button class="btn btn-primary btn-xs" ng-disabled="vm.atEnd()" ng-click="vm.next()">Next <span class="glyphicon glyphicon-chevron-right"></span></button>
+                    </td>
+                </tr>
+            </table>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="width:8em">Date</th>
+                        <th ng-show="vm.request.type === vm.options.type.recalls">Drug recalls for {{vm.request.brand}}</th>
+                        <th ng-show="vm.request.type === vm.options.type.events">Adverse reactions to {{vm.request.brand}}</th>
+                        <th class="text-right minwidth">Share</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="r in vm.response.data.results">
+                        <td class="minwidth">{{r.timestamp | timestamp}}</td>
+                        <td>
+                            <span ng-if="vm.request.type === 'recalls'">{{r.reason}} <span class="small text-muted">({{r.product}})</span><span ng-if="r.duplicate" class="text-danger"> <b>(Duplicate)</b></span></span>
+                            <span ng-if="vm.request.type === 'events'">{{r | event}}</span>
+                        </td>
+                        <td class="text-right minwidth">
+                            <span ng-show="vm.shared != r"><a href ng-click="vm.share(r)"><span class="glyphicon glyphicon-share"></span></a>
+                            </span>
+                            <span ng-show="vm.shared == r" class="text-right minwidth">
                         <a ng-show="vm.request.type === 'events'" ng-click="vm.report(r)" class="btn btn-social-icon btn-xs btn-pinterest">
                             <i class="fa fa-medkit"> </i>
                         </a>
@@ -135,10 +137,26 @@
                             <i class="fa fa-facebook"> </i>
                         </a>
                         <a href ng-click="vm.share()"><span class="glyphicon glyphicon-remove"></span></a>
-                        </span>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table style="width:100%">
+                <tr>
+                    <td>
+                        <button class="btn btn-primary btn-xs" ng-disabled="vm.atBeginning()" ng-click="vm.prev()"><span class="glyphicon glyphicon-chevron-left"></span> Prev</button>
+                    </td>
+                    <td align="center" style="white-space:nowrap">
+                        <span ng-show="vm.total() === 0">No Records</span>
+                        <span ng-show="vm.total() === 1">One Record</span>
+                        <span ng-show="vm.total() > 1">Records {{vm.first()}}-{{vm.last()}} of {{vm.total()}}</span>
+                    </td>
+                    <td align="right">
+                        <button class="btn btn-primary btn-xs" ng-disabled="vm.atEnd()" ng-click="vm.next()">Next <span class="glyphicon glyphicon-chevron-right"></span></button>
                     </td>
                 </tr>
-            </tbody>
-        </table>
+            </table>
+        </div>
     </div>
 </div>
