@@ -26,11 +26,6 @@
         $urlRouterProvider.otherwise('/');
 
         jsendProvider.setRelativeBase('/api');
-        jsendProvider.setResponseCallback(function (response) {
-            if (response.status === 'error') {
-                alert(response.message);
-            }
-        });
     }
 
     module.config(config);
@@ -70,6 +65,86 @@
 
     module.config(config);
 })();
+
+(function (module) {
+
+    function beSafeCarousel($rootScope, $state, $stateParams, $animate, besafe) {
+        $animate.enabled(true);
+        var self = this;
+        var images = null;
+        var selected = null;
+        var interval;
+        var $scope;
+
+        $rootScope.$on('$stateChangeSuccess', function (event, state, params) {
+            selectFromParams(params);
+        });
+
+        function selectFromParams(params) {
+            if (params && params.brand) {
+                var found = false;
+                angular.forEach(images, function (image) {
+                    image.active = false;
+                    if (image.term == params.brand) {
+                        image.active = true;
+                        selected = image;
+                        found = true;
+                    }
+                });
+                if (found) {
+                    $scope.interval = -1;
+                } else {
+                    $scope.interval = interval;
+                }
+            }
+        }
+
+        function selectImage(image) {
+            if (selected) {
+                selected.active = false;
+            }
+            selected = image;
+            selected.active = true;
+            var params = angular.copy($stateParams);
+            params.brand = image.term;
+            params.skip = 0;
+            $state.go('app.search', params, {
+                reload: true
+            });
+        }
+
+        function link(scope, element, attrs) {
+            $scope = scope;
+            scope.interval = interval = scope.seconds * 1000;
+            if (images === null) {
+                besafe.images().then(function (results) {
+                    images = results;
+                    if (images.length > 0) {
+                        images[0].active = true;
+                    }
+                    selectFromParams($stateParams);
+                    scope.images = images;
+                });
+            } else {
+                scope.images = images;
+                selectFromParams($stateParams);
+            }
+            scope.selectImage = selectImage;
+        }
+
+        return {
+            restrict: 'E',
+            scope: {
+                seconds: '='
+            },
+            link: link,
+            templateUrl: 'app/carousel/be-safe-carousel.html'
+        };
+    }
+
+    module.directive('beSafeCarousel', beSafeCarousel);
+
+})(angular.module('app.search'));
 
 (function (module) {
 
@@ -205,28 +280,14 @@
 
 (function (module) {
 
-    function SearchCtrl($scope, $http, $modal, $state, $stateParams, jsend) {
+    function SearchCtrl($scope, $http, $modal, $state, $stateParams, besafe, jsend) {
         var vm = this;
+        var total = 0;
 
-        var defaults = {
-            request: {
-                criteria: {}
-            },
-            response: {
-                status: 'success',
-                data: {
-                    total: 0,
-                    results: []
-                }
-            }
-        };
-
-        vm.states = {
-            initial: 0,
-            searching: 1,
-            success: 2,
-            failure: 3
-        };
+        vm.request = null;
+        vm.results = null;
+        vm.message = null;
+        vm.waiting = false;
 
         vm.options = {
             date: {
@@ -327,11 +388,11 @@
         };
 
         vm.last = function () {
-            return Math.min(vm.criteria.skip + vm.criteria.limit, vm.response.data.total);
+            return Math.min(vm.criteria.skip + vm.criteria.limit, total);
         };
 
         vm.total = function () {
-            return vm.response.data.total;
+            return total;
         };
 
         vm.atBeginning = function () {
@@ -339,19 +400,23 @@
         };
 
         vm.atEnd = function () {
-            return vm.last() >= vm.response.data.total;
+            return vm.last() >= total;
         };
 
         vm.prev = function () {
             vm.criteria.skip -= vm.criteria.limit;
-            $state.go('app.search', vm.criteria);
-            //doSearch(vm.criteria);
+            $state.go('app.search', vm.criteria, {
+                notify: false
+            });
+            doSearch(vm.criteria);
         };
 
         vm.next = function () {
             vm.criteria.skip += vm.criteria.limit;
-            $state.go('app.search', vm.criteria);
-            //doSearch(vm.criteria);
+            $state.go('app.search', vm.criteria, {
+                notify: false
+            });
+            doSearch(vm.criteria);
         };
 
         function resultString(r) {
@@ -406,18 +471,21 @@
         }
 
         function doSearch(criteria) {
-            vm.request = angular.copy(criteria);
-            vm.response = angular.copy(defaults.response);
             var query = createQuery(criteria);
-            vm.state = vm.states.searching;
-            jsend('/drugs').get(query).then(function (response) {
-                vm.response = response;
-                vm.state = vm.states.success;
-            }, function (res) {
-                vm.response = response;
-                vm.state = vm.states.failure;
+            vm.request = angular.copy(criteria);
+            vm.waiting = true;
+            besafe.search(query).then(function (data) {
+                total = data.total;
+                vm.results = data.results;
+            }, function (message) {
+                total = 0;
+                vm.request = null;
+                vm.results = null;
+                vm.message = message;
+            }).finally(function () {
+                vm.waiting = false;
             });
-        };
+        }
 
         vm.subscribe = function () {
             $scope.query = createQuery(vm.criteria);
@@ -488,14 +556,15 @@
                 facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + window.location.origin
             }
         } else {
-            vm.response = angular.copy(defaults.response);
-            vm.state = vm.states.initial;
+            vm.message = null;
+            vm.request = null;
+            vm.results = null;
         }
 
         // Get the search terms for typeahead.
         vm.searchTerms = [];
-        jsend('/carousel/terms').get().then(function (response) {
-            vm.searchTerms = response.data;
+        besafe.names().then(function (names) {
+            vm.searchTerms = names;
         });
         vm.typeaheadContains = function (str, val) {
             return str.indexOf(val.toLowerCase()) >= 0;
@@ -539,6 +608,59 @@
     module.controller('SubscriptionCtrl', SubscriptionCtrl);
 })(angular.module('app.search'));
 
+// This service provides varous methods that access the BE Safe API.
+(function (module) {
+
+    function service($q, jsend) {
+
+        var api = {
+            drugs: jsend('/drugs'),
+            images: jsend('/carousel'),
+            names: jsend('/carousel/terms')
+        };
+
+        // Searches for recalls or events. Returns a promise that is either
+        // resolved with the response data or rejected with an error message.
+        function search(query) {
+            var deferred = $q.defer();
+            api.drugs.get(query).then(function (response) {
+                deferred.resolve(response.data);
+            }, function (response) {
+                if (response.status === 'fail') {
+                    deferred.reject('The request failed. Please check your console log.');
+                } else {
+                    deferred.reject(response.message);
+                }
+            });
+            return deferred.promise;
+        }
+
+        function images() {
+            var deferred = $q.defer();
+            api.images.get().then(function (response) {
+                deferred.resolve(response.data);
+            });
+            return deferred.promise;
+        }
+
+        function names() {
+            var deferred = $q.defer();
+            api.names.get().then(function (response) {
+                deferred.resolve(response.data);
+            });
+            return deferred.promise;
+        }
+
+        return {
+            search: search,
+            images: images,
+            names: names
+        };
+    }
+
+    module.factory('besafe', service);
+})(angular.module('app'));
+
 (function (module) {
 
     function HeaderCtrl($scope, $state, jsend) {
@@ -565,83 +687,3 @@
 
     module.controller('HeaderCtrl', HeaderCtrl);
 })(angular.module('app'));
-
-(function (module) {
-
-    function beSafeCarousel($rootScope, $state, $stateParams, $animate, jsend) {
-        $animate.enabled(true);
-        var self = this;
-        var images = null;
-        var selected = null;
-        var interval;
-        var $scope;
-
-        $rootScope.$on('$stateChangeSuccess', function (event, state, params) {
-            selectFromParams(params);
-        });
-
-        function selectFromParams(params) {
-            if (params && params.brand) {
-                var found = false;
-                angular.forEach(images, function (image) {
-                    image.active = false;
-                    if (image.term == params.brand) {
-                        image.active = true;
-                        selected = image;
-                        found = true;
-                    }
-                });
-                if (found) {
-                    $scope.interval = -1;
-                } else {
-                    $scope.interval = interval;
-                }
-            }
-        }
-
-        function selectImage(image) {
-            if (selected) {
-                selected.active = false;
-            }
-            selected = image;
-            selected.active = true;
-            var params = angular.copy($stateParams);
-            params.brand = image.term;
-            params.skip = 0;
-            $state.go('app.search', params, {
-                reload: true
-            });
-        }
-
-        function link(scope, element, attrs) {
-            $scope = scope;
-            scope.interval = interval = scope.seconds * 1000;
-            if (images === null) {
-                jsend('/carousel').get().then(function (response) {
-                    images = response.data;
-                    if (images.length > 0) {
-                        images[0].active = true;
-                    }
-                    selectFromParams($stateParams);
-                    scope.images = images;
-                });
-            } else {
-                scope.images = images;
-                selectFromParams($stateParams);
-            }
-            scope.selectImage = selectImage;
-        }
-
-        return {
-            restrict: 'E',
-            scope: {
-                seconds: '='
-            },
-            link: link,
-            templateUrl: 'app/carousel/be-safe-carousel.html'
-        };
-    }
-
-    module.directive('beSafeCarousel', beSafeCarousel);
-
-})(angular.module('app.search'));
