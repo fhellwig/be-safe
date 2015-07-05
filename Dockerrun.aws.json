@@ -1,5 +1,9 @@
 {
   "AWSEBDockerrunVersion": "1",
+    "Image": {
+    "Name": "buchananedwards/be-safe-base:latest",
+    "Update": "true"
+  },
   "Ports": [
     {
       "ContainerPort": "3000"

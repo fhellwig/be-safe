@@ -15,7 +15,7 @@
         "accessKeyId": "you must set this to your aws access key id (4 of 4)"
     },
     "server": {
-        "port": 3000
+        "port": 8081
     },
     "emails": {
         "from_addr": "be-safe@buchanan-edwards.com",
