@@ -37769,11 +37769,12 @@ angular.module('ui.router.state')
                 if (_responseCallback) {
                     _responseCallback.call(config, obj);
                 }
+                var req = config.method + ' ' + config.url;
                 if (obj.status === 'success') {
-                    $log.debug(config.method, config.url, obj);
+                    $log.debug(req, obj);
                     deferred.resolve(obj);
                 } else {
-                    $log.error(config.method, config.url, obj);
+                    $log.error(req, obj);
                     deferred.reject(obj);
                 }
             }
@@ -37810,11 +37811,18 @@ angular.module('ui.router.state')
                 });
             }
 
-            JSend.prototype.delete = function () {
+            JSend.prototype.patch = function () {
                 return http({
                     url: this.url,
                     method: 'PATCH',
                     data: data
+                });
+            }
+
+            JSend.prototype.delete = function () {
+                return http({
+                    url: this.url,
+                    method: 'DELETE'
                 });
             }
 

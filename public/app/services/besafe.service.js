@@ -7,7 +7,11 @@
       version: jsend('/version'),
       drugs: jsend('/drugs'),
       images: jsend('/carousel'),
-      names: jsend('/carousel/terms')
+      names: jsend('/carousel/terms'),
+      subscribe: jsend('/subscribe'),
+      unsubscribe: function(uuid) {
+        return jsend('/subscribe/{0}', uuid);
+      }
     };
 
     function version() {
@@ -24,9 +28,10 @@
         return response.data;
       }, function(response) {
         if (response.message) {
-            return response.message;
+          return response.message;
         } else {
-            return 'The request failed. Please check your console log.';
+          return $q.reject(
+            'The request failed. Please check your browser log.');
         }
       });
       return deferred.promise;
@@ -44,11 +49,40 @@
       });
     }
 
+    function subscribe(email, query, unsubscribeLink) {
+      return api.subscribe.put({
+        email: vm.email,
+        query: $scope.query,
+        unsubscribeLink: unsubscribeLink
+      }).then(
+        function(response) {
+          return 'You will now receive email notifications from BE Safe.';
+        },
+        function(response) {
+          return $q.reject(
+            'There was an error requesting the subscription.\n\n' +
+            response.message);
+        });
+    }
+
+    function unsubscribe(uuid) {
+      return api.unsubscribe(uuid).delete().then(
+        function(response) {
+          return 'Unsubscribed';
+        },
+        function(response) {
+          return $q.reject('Error: ' + response.code +
+            ' (' + response.message + ')');
+        });
+    }
+
     return {
       version: version,
       search: search,
       images: images,
-      names: names
+      names: names,
+      subscribe: subscribe,
+      unsubscribe: unsubscribe
     };
   }
 

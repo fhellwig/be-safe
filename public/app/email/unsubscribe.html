@@ -9,4 +9,13 @@
   <p>
     Thank you for using BE Safe.
   </p>
+  <p class="small">
+    Status:
+    <span ng-show="vm.success" class="text-success">
+    {{vm.success}}
+  </span>
+    <span ng-show="vm.error" class="text-danger">
+    {{vm.error}}
+  </span>
+  </p>
 </div>

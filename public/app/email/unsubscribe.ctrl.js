@@ -1,9 +1,16 @@
 (function(module) {
 
-  function UnsubscribeCtrl($scope, $stateParams, $location) {
+  function UnsubscribeCtrl($stateParams, besafe) {
     var vm = this;
-    console.log($location);
     vm.uuid = $stateParams.uuid;
+    vm.success = '';
+    vm.error = '';
+
+    besafe.unsubscribe(vm.uuid).then(function(status) {
+      vm.success = status;
+    }, function(status) {
+      vm.error = status;
+    });
   }
 
   module.controller('UnsubscribeCtrl', UnsubscribeCtrl);
