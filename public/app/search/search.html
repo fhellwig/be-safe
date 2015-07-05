@@ -115,7 +115,7 @@
         </td>
       </tr>
     </table>
-    <table class="table">
+    <table class="table hidden-xs">
       <thead>
         <tr>
           <th style="width:8em">Date</th>
@@ -150,6 +150,30 @@
         </tr>
       </tbody>
     </table>
+    <div class="visible-xs-block">
+      <h4 ng-show="vm.request.type === vm.options.type.recalls">Drug recalls for {{vm.request.brand}}</h4>
+      <h4 ng-show="vm.request.type === vm.options.type.events">Adverse reactions to {{vm.request.brand}}</h4>
+      <p ng-repeat="r in vm.results">
+        <strong>{{r.timestamp | timestamp}}</strong>
+        <span ng-if="vm.request.type === 'recalls'">{{r.reason}} <span class="small text-muted">({{r.product}})</span><span ng-if="r.duplicate" class="text-danger"> <b>(Duplicate)</b></span></span>
+        <span ng-if="vm.request.type === 'events'">{{r | event}}</span>
+        &nbsp;
+        <span ng-show="vm.shared != r"><a href ng-click="vm.share(r)"><span class="glyphicon glyphicon-share"></span></a>
+        </span>
+        <span ng-show="vm.shared == r" class="text-right minwidth">
+                        <a href ng-click="vm.share()"><span class="glyphicon glyphicon-remove"></span></a>
+        <a ng-show="vm.request.type === 'events'" ng-click="vm.report(r)" class="btn btn-social-icon btn-xs btn-pinterest">
+          <i class="fa fa-medkit"> </i>
+        </a>
+        <a class="btn btn-social-icon btn-xs btn-twitter" target="_blank" href="{{vm.shareLinks.twitter}}">
+          <i class="fa fa-twitter"> </i>
+        </a>
+        <a class="btn btn-social-icon btn-xs btn-facebook" target="_blank" href="{{vm.shareLinks.facebook}}">
+          <i class="fa fa-facebook"> </i>
+        </a>
+        </span>
+      </p>
+    </div>
     <table style="width:100%">
       <tr>
         <td>
