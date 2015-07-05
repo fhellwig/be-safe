@@ -3,12 +3,12 @@
 </div>
 <div class="be-safe-divider hidden-xs"></div>
 <div class="container" ng-controller="SearchCtrl as vm">
-  <form class="search-form" ng-submit="vm.search()">
+  <form class="search-form" ng-submit="vm.search(true)">
     <div class="row">
       <div class="col-ts-12">
         <div class="input-group be-safe-form-group">
           <input type="text" tabindex="1" name="search-term" ng-model="vm.criteria.brand" placeholder="Drug name" class="form-control" typeahead="term for term in vm.searchTerms | filter:$viewValue:vm.typeaheadContains | limitTo:10" typeahead-on-select="vm.typeaheadSelected($item)">
-          <span ng-click="vm.search()" class="input-group-addon"><span class="glyphicon glyphicon-search"></span> Search</span>
+          <span ng-click="vm.search(true)" class="input-group-addon"><span class="glyphicon glyphicon-search"></span> Search</span>
         </div>
         <div class="help-block">
           Enter a drug name, such as <em>aspirin</em>, in the search area and select either drug recalls or adverse reactions. Press enter or click the search button.
@@ -18,17 +18,17 @@
     <div class="row be-safe-form-group">
       <div class="col-ts-3">
         <label class="radio-inline">
-          <input type="radio" value="{{vm.options.type.recalls}}" name="search-type" ng-model="vm.criteria.type" ng-change="vm.search()"> Drug Recalls
+          <input type="radio" value="{{vm.options.type.recalls}}" name="search-type" ng-model="vm.criteria.type" ng-change="vm.search(false)"> Drug Recalls
         </label>
       </div>
       <div class="col-ts-4">
         <label class="radio-inline">
-          <input type="radio" value="{{vm.options.type.events}}" name="search-type" ng-model="vm.criteria.type" ng-change="vm.search()"> Adverse Reactions
+          <input type="radio" value="{{vm.options.type.events}}" name="search-type" ng-model="vm.criteria.type" ng-change="vm.search(false)"> Adverse Reactions
         </label>
       </div>
       <div class="col-ts-offset-1 col-ts-4">
         <label for="date-range" class="sr-only">Date Range</label>
-        <select name="date-range" ng-model="vm.criteria.date" class="form-control" ng-change="vm.search()">
+        <select name="date-range" ng-model="vm.criteria.date" class="form-control" ng-change="vm.search(false)">
           <option value="any">{{vm.options.date.any.text}}</option>
           <option value="past30d">{{vm.options.date.past30d.text}}</option>
           <option value="past60d">{{vm.options.date.past60d.text}}</option>
@@ -44,18 +44,18 @@
       </div>
       <div class="col-ts-4 nowrap">
         <label class="radio-inline">
-          <input type="radio" value="male" name="search-sex" ng-model="vm.criteria.sex" ng-disabled="vm.criteria.type !== vm.options.type.events" ng-change="vm.search()"> {{vm.options.sex.male.text}}
+          <input type="radio" value="male" name="search-sex" ng-model="vm.criteria.sex" ng-disabled="vm.criteria.type !== vm.options.type.events" ng-change="vm.search(false)"> {{vm.options.sex.male.text}}
         </label>
         <label class="radio-inline">
-          <input type="radio" value="female" name="search-sex" ng-model="vm.criteria.sex" ng-disabled="vm.criteria.type !== vm.options.type.events" ng-change="vm.search()"> {{vm.options.sex.female.text}}
+          <input type="radio" value="female" name="search-sex" ng-model="vm.criteria.sex" ng-disabled="vm.criteria.type !== vm.options.type.events" ng-change="vm.search(false)"> {{vm.options.sex.female.text}}
         </label>
         <label class="radio-inline">
-          <input type="radio" value="any" name="search-sex" ng-model="vm.criteria.sex" ng-disabled="vm.criteria.type !== vm.options.type.events" ng-change="vm.search()"> {{vm.options.sex.any.text}}
+          <input type="radio" value="any" name="search-sex" ng-model="vm.criteria.sex" ng-disabled="vm.criteria.type !== vm.options.type.events" ng-change="vm.search(false)"> {{vm.options.sex.any.text}}
         </label>
       </div>
       <div class="col-ts-offset-1 col-ts-4">
         <label for="age-range" class="sr-only">Age Range</label>
-        <select name="age-range" ng-model="vm.criteria.age" class="form-control" ng-disabled="vm.criteria.type !== vm.options.type.events" ng-change="vm.search()">
+        <select name="age-range" ng-model="vm.criteria.age" class="form-control" ng-disabled="vm.criteria.type !== vm.options.type.events" ng-change="vm.search(false)">
           <option value="any">{{vm.options.age.any.text}}</option>
           <option value="infant">{{vm.options.age.infant.text}}</option>
           <option value="child">{{vm.options.age.child.text}}</option>
