@@ -1,12 +1,8 @@
-#Set Container OS
-FROM buchananedwards/be-safe-base
+FROM buchananedwards/be-safe
 
-#Expose a port
 EXPOSE 3000
 
-#Clone the most current branch of the github repo
-RUN cd /besafe && git checkout develop
-
-#Set up the application's node dependencies
-RUN cd /besafe && gulp app
-RUN cd /besafe && npm start &
+# startup
+ADD start.sh /besafe/scripts  
+RUN chmod +x /besafe/scipts/start.sh  
+CMD ./besafe/scripts/start.sh  
