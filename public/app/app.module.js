@@ -5,6 +5,7 @@
         'ui.bootstrap',
         'jsend',
         'app.search',
+        'app.email',
         'app.help'
     ]);
 
