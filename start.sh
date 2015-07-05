@@ -1,4 +1,4 @@
-echo "starting the application...."
+echo "starting the application....."
 cd /besafe
 date -u
 ls -al
