@@ -1,6 +1,6 @@
 (function(module) {
 
-  function SearchCtrl($scope, $http, $modal, $state, searchParams, besafe) {
+  function SearchCtrl($scope, $modal, $state, searchParams, besafe) {
     var vm = this;
     var total = 0;
 
@@ -65,19 +65,25 @@
       return query;
     }
 
-    vm.search = function() {
+    vm.search = function(refreshPage) {
       vm.criteria.skip = 0;
-      $state.go('app.search', vm.criteria, {
-        reload: true
-      });
+      if (refreshPage) {
+        $state.go('app.search', vm.criteria);
+      } else {
+        $state.go('app.search', vm.criteria, {
+          notify: false
+        });
+        doSearch(vm.criteria);
+      }
     }
 
     function doSearch(criteria) {
+      if (!criteria.brand) return;
       var query = createQuery(criteria);
-      vm.request = angular.copy(criteria);
       vm.waiting = true;
       besafe.search(query).then(function(data) {
         total = data.total;
+        vm.request = angular.copy(criteria);
         vm.results = data.results;
       }, function(message) {
         total = 0;
