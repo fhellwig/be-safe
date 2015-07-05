@@ -1,7 +1,6 @@
 (function(module) {
 
-  function SearchCtrl($scope, $http, $modal, $state, $stateParams,
-    searchParams, besafe, jsend) {
+  function SearchCtrl($scope, $http, $modal, $state, searchParams, besafe) {
     var vm = this;
     var total = 0;
 
@@ -47,32 +46,6 @@
       });
       doSearch(vm.criteria);
     };
-
-    function resultString(r) {
-      var s = [];
-      s.push('A ');
-      if (r.patient.patientonsetage) {
-        s.push(Math.round(r.patient.patientonsetage));
-        s.push(' year-old ');
-      }
-      if (r.patient.patientsex) {
-        if (r.patient.patientsex == 1) {
-          s.push('male ');
-        } else {
-          s.push('female ');
-        }
-      } else {
-        s.push('patient ');
-      }
-      s.push('experienced the following issues: ');
-      var tmp = [];
-      angular.forEach(r.patient.reaction, function(issue) {
-        tmp.push(issue.reactionmeddrapt.toLowerCase());
-      });
-      s.push(tmp.join(', '));
-      s.push('.');
-      return s.join('');
-    }
 
     function createQuery(criteria) {
       var query = {
@@ -126,25 +99,12 @@
     };
 
     vm.report = function(report) {
-
       $scope.report = report;
       $scope.query = createQuery(vm.criteria);
       $modal.open({
         templateUrl: 'app/search/report.html',
         controller: 'ReportCtrl as vm',
         scope: $scope
-      });
-    };
-
-    vm.clear = function() {
-      $state.go('app.search', {
-        type: 'recalls',
-        brand: null,
-        date: 'any',
-        sex: null,
-        age: 'any'
-      }, {
-        reload: true
       });
     };
 

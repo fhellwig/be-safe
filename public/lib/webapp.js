@@ -416,8 +416,7 @@
 
 (function(module) {
 
-  function SearchCtrl($scope, $http, $modal, $state, $stateParams,
-    searchParams, besafe, jsend) {
+  function SearchCtrl($scope, $http, $modal, $state, searchParams, besafe) {
     var vm = this;
     var total = 0;
 
@@ -463,32 +462,6 @@
       });
       doSearch(vm.criteria);
     };
-
-    function resultString(r) {
-      var s = [];
-      s.push('A ');
-      if (r.patient.patientonsetage) {
-        s.push(Math.round(r.patient.patientonsetage));
-        s.push(' year-old ');
-      }
-      if (r.patient.patientsex) {
-        if (r.patient.patientsex == 1) {
-          s.push('male ');
-        } else {
-          s.push('female ');
-        }
-      } else {
-        s.push('patient ');
-      }
-      s.push('experienced the following issues: ');
-      var tmp = [];
-      angular.forEach(r.patient.reaction, function(issue) {
-        tmp.push(issue.reactionmeddrapt.toLowerCase());
-      });
-      s.push(tmp.join(', '));
-      s.push('.');
-      return s.join('');
-    }
 
     function createQuery(criteria) {
       var query = {
@@ -542,25 +515,12 @@
     };
 
     vm.report = function(report) {
-
       $scope.report = report;
       $scope.query = createQuery(vm.criteria);
       $modal.open({
         templateUrl: 'app/search/report.html',
         controller: 'ReportCtrl as vm',
         scope: $scope
-      });
-    };
-
-    vm.clear = function() {
-      $state.go('app.search', {
-        type: 'recalls',
-        brand: null,
-        date: 'any',
-        sex: null,
-        age: 'any'
-      }, {
-        reload: true
       });
     };
 
@@ -629,81 +589,73 @@
 })(angular.module('app.search'));
 
 // This service provides varous methods that access the BE Safe API.
-(function (module) {
+(function(module) {
 
-    function service($q, jsend) {
+  function service($q, jsend) {
 
-        var api = {
-            drugs: jsend('/drugs'),
-            images: jsend('/carousel'),
-            names: jsend('/carousel/terms')
-        };
+    var api = {
+      version: jsend('/version'),
+      drugs: jsend('/drugs'),
+      images: jsend('/carousel'),
+      names: jsend('/carousel/terms')
+    };
 
-        // Searches for recalls or events. Returns a promise that is either
-        // resolved with the response data or rejected with an error message.
-        function search(query) {
-            var deferred = $q.defer();
-            api.drugs.get(query).then(function (response) {
-                deferred.resolve(response.data);
-            }, function (response) {
-                if (response.status === 'fail') {
-                    deferred.reject('The request failed. Please check your console log.');
-                } else {
-                    deferred.reject(response.message);
-                }
-            });
-            return deferred.promise;
-        }
-
-        function images() {
-            var deferred = $q.defer();
-            api.images.get().then(function (response) {
-                deferred.resolve(response.data);
-            });
-            return deferred.promise;
-        }
-
-        function names() {
-            var deferred = $q.defer();
-            api.names.get().then(function (response) {
-                deferred.resolve(response.data);
-            });
-            return deferred.promise;
-        }
-
-        return {
-            search: search,
-            images: images,
-            names: names
-        };
+    function version() {
+      return api.version.get().then(function(response) {
+        return response.data;
+      });
     }
 
-    module.factory('besafe', service);
+    // Searches for recalls or events. Returns a promise that is either
+    // resolved with the response data or rejected with an error message.
+    function search(query) {
+      var deferred = $q.defer();
+      return api.drugs.get(query).then(function(response) {
+        return response.data;
+      }, function(response) {
+        if (response.message) {
+            return response.message;
+        } else {
+            return 'The request failed. Please check your console log.';
+        }
+      });
+      return deferred.promise;
+    }
+
+    function images() {
+      return api.images.get().then(function(response) {
+        return response.data;
+      });
+    }
+
+    function names() {
+      return api.names.get().then(function(response) {
+        return response.data;
+      });
+    }
+
+    return {
+      version: version,
+      search: search,
+      images: images,
+      names: names
+    };
+  }
+
+  module.factory('besafe', service);
 })(angular.module('app'));
 
-(function (module) {
+(function(module) {
 
-    function HeaderCtrl($scope, $state, jsend) {
-        var vm = this;
+  function HeaderCtrl($scope, $state, besafe) {
+    var vm = this;
 
-        vm.version = 'unknown';
+    vm.version = 'unknown';
 
-        jsend('/version').get().then(function (res) {
-            vm.version = res.data;
-        });
+    besafe.version().then(function(version) {
+      vm.version = version;
+    });
+  }
 
-        vm.home = function () {
-            $state.go('app.search', {
-                type: 'recalls',
-                brand: null,
-                date: 'any',
-                sex: null,
-                age: 'any'
-            }, {
-                reload: true
-            });
-        };
-    }
-
-    module.controller('HeaderCtrl', HeaderCtrl);
+  module.controller('HeaderCtrl', HeaderCtrl);
 })(angular.module('app'));
