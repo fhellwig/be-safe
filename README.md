@@ -47,7 +47,7 @@ Point your browser to <http://localhost:8081/> and use the BE Safe application. 
 
 #### Docker Installation
 
-From a computer running Windows, Mac or Linux, perform the following steps:
+The BE Safe application can be run from any computer that supports Docker using the following steps:
 
 1. install boot2docker if on windows or mac; install the lone docker package if on linux 
 2.	boot2docker ip # Write this down for later
