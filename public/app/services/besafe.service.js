@@ -44,6 +44,7 @@
       );
     }
 
+    // Gets the drug names (search terms)
     function names() {
       return jsend({
         method: 'GET',
