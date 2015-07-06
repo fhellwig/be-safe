@@ -156,8 +156,9 @@ Our Agile development approach was tailored to the size, scope and timelines of 
 
 The BE team was assembled in February and conducted practice sessions to ensure we were ready to work together as an integrated team. The team came back together upon the solicitations release. We used less than 2 days to unpack, sketch and design. On the 2nd day we began daily sprints that included development, releases, demos, retrospectives and user story and backlog updates. At key points we incorporated user feedback including usability and acceptance testing.
 
-## 4. Evidence Index
-[Criteria a](https://github.com/buchanan-edwards/be-safe/tree/master/docs/evidence/criteria_a.pdf)  
+## 4. Evidence Index  
+[Criteria a](docs/evidence/README.pdf) 
+[Criteria a](docs/evidence/criteria_a.pdf)  
 [Criteria b](https://github.com/buchanan-edwards/be-safe/tree/master/docs/evidence/criteria_b.pdf)  
 [Criteria c](https://github.com/buchanan-edwards/be-safe/tree/master/docs/evidence/criteria_c.pdf)  
 [Criteria d](https://github.com/buchanan-edwards/be-safe/tree/master/docs/evidence/criteria_d.pdf)  
