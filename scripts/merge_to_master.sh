@@ -6,4 +6,4 @@
 
 echo "called here"
 git show-ref
-git push origin HEAD:master
+#git push origin HEAD:master
