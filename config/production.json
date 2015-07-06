@@ -1,8 +1,4 @@
-var config = {
-    server: {
-        host: 'https://be-safe.buchanan-edwards.com',
-        port: '',
-    }
-};
-
-module.exports = config;
+"server": {
+  "host": "https://be-safe.buchanan-edwards.com",
+  "port": null
+}
