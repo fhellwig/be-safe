@@ -21,27 +21,28 @@ The BE Safe application can be run on any platform supporting Node.js. Here is t
 
 Prerequisites
 
-- A git client
-- Node (including npm)
+- A Git client
+- Node.js (including npm)
 - A command prompt or terminal shell window
 
-**Step 1**: Clone our GitHub repository.
+Clone our GitHub repository.
 
-```bash
+```
 $ git clone https://github.com/buchanan-edwards/be-safe.git
 $ cd be-safe
 ```
 
-**Step 2**: Edit the `config/default.json` file in the repository and update the four environment settings at the top of that file. 
+Edit the `config/default.json` file in the repository and update the four all-uppercase environment settings at the top of that file. 
+These settings specify the OpenFDA API key as well as the AWS settings used for SMTP.
 
-**Step 3**: Then, install dependencies and start the server:
+Install the dependencies and start the server:
 
 ```bash
 $ npm install
 $ npm start
 ```
 
-**Step 4**: Point your browser to <http://localhost:8081/> use the BE Safe application.
+Point your browser to <http://localhost:8081/> and use the BE Safe application. Please note that the port can be changed in the `config/defaults.json` file.
 
 #### Docker Installation
 
