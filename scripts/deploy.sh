@@ -16,5 +16,5 @@ aws elasticbeanstalk create-application-version --application-name be-safe-docke
 
 # 
 # Update Elastic Beanstalk environment to new version
-aws elasticbeanstalk update-environment --environment-name be-safe-docker \
+aws elasticbeanstalk update-environment --environment-name beSafeDocker-envii \
     --version-label $CIRCLE_SHA1
