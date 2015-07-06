@@ -6,7 +6,7 @@ echo "cleaning house..."
 rm -rf wwwroot/
 
 echo "getting most recent code..."
-git clone -b develop https://github.com/buchanan-edwards/be-safe.git wwwroot/
+git clone -b master https://github.com/buchanan-edwards/be-safe.git wwwroot/
 
 cd wwwroot
 npm install
