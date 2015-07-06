@@ -15,6 +15,10 @@ frisby.create('Testing Adverse Reaction Events GET')
     //.expectHeader('Content-Type', 'application/json; charset=utf-8')
     .expectStatus(200)
 .toss();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7906c10e051889f99ee241ef2923c992dda33757
 /*
 console.log('Testing BE Safe Website Availability')
 frisby.create('Testing BE Safe Website Availability')
