@@ -1,4 +1,4 @@
-[https://be-safe.buchanan-edwards.com](https://be-safe.buchanan-edwards.com)
+**[https://be-safe.buchanan-edwards.com](https://be-safe.buchanan-edwards.com)**
 
 # BE Safe
 
