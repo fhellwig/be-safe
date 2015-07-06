@@ -1,26 +1,14 @@
-(function (module) {
+(function(module) {
 
-    function HeaderCtrl($scope, $state, jsend) {
-        var vm = this;
+  function HeaderCtrl($scope, $state, besafe) {
+    var vm = this;
 
-        vm.version = 'unknown';
+    vm.version = 'unknown';
 
-        jsend('/version').get().then(function (res) {
-            vm.version = res.data;
-        });
+    besafe.version().then(function(version) {
+      vm.version = version;
+    });
+  }
 
-        vm.home = function () {
-            $state.go('app.search', {
-                type: 'recalls',
-                brand: null,
-                date: 'any',
-                sex: null,
-                age: 'any'
-            }, {
-                reload: true
-            });
-        };
-    }
-
-    module.controller('HeaderCtrl', HeaderCtrl);
+  module.controller('HeaderCtrl', HeaderCtrl);
 })(angular.module('app'));
