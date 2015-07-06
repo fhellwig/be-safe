@@ -7,7 +7,8 @@
         "start": "node ./server | bunyan -o short",
         "bower": "bower install",
         "gulp": "gulp",
-        "gulp-watch": "gulp watch"
+        "gulp-watch": "gulp watch",
+        "test": "jasmine-node tests/integration-tests_spec.js"
     },
     "dependencies": {
         "async": "^1.2.1",
