@@ -1,12 +1,14 @@
 #
-echo "starting the application...."
+echo "starting the application set up...."
 cd /besafe
-
-echo "hi brandt xxx-"
-git clone https://github.com/brandtheisey/be-safe.git wwwroot/
+echo "cleaning house..."
+rm -rf wwwroot/
+echo "getting most recent code..."
+git clone -b develop https://github.com/brandtheisey/be-safe.git wwwroot/
 cd wwwroot
 npm install -g gulp
 npm install
 
+echo "ok here we go..."
 gulp app
 nodejs server.js
