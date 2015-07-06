@@ -1,4 +1,5 @@
-[{
+[   
+    {
         "name": "Aspirin",
         "text": "Treats pain, fever, arthritis, and inflammation. It may also be used to reduce the risk of heart attack.",
         "file": "aspirin.jpg",
@@ -542,4 +543,130 @@
     "text": "Intermediate-acting insuling used to treat diabetes",
     "file": "humulin-n.jpg",
     "term": "humulin n"
-}]
+}, {
+    "name": "advil",
+    "text": "Treats pain and fever. This medicine is an NSAID.",
+    "file": "advil.jpg",
+    "term": "advil"
+}, {
+    "name": "Aleve",
+    "text": "Treats fever and pain, including pain caused by arthritis, gout, menstrual cramps, tendinitis, headache, backache, and toothache.",
+    "file": "aleve.jpg",
+    "term": "aleve"
+}, {
+    "name": "Cepacol",
+    "text": "Kills the germs that cause bad breath, reduces plaque, and freshens breath.",
+    "file": "cepacol.jpg",
+    "term": "cepacol"
+ }, {
+    "name": "Dimetapp",
+    "text": "Treats nasal congestion associated with allergies, hay fever, and the common cold.",
+    "file": "dimetapp.jpg",
+    "term": "dimetapp"
+}, {
+    "name": "Claritin",
+    "text": "Treats allergy (hay fever) symptoms and hives. This medicine is an antihistamine.",
+    "file": "claritin.jpg",
+    "term": "claritin"
+}, {
+    "name": "Colace",
+    "text": "Keeps stools soft for easy, natural passage and is not a stimulant laxative.",
+    "file": "colace.jpg",
+    "term": "colace"
+}, {
+    "name": "Cortaid",
+    "text": "Relieves of poison sumac, insect bites, soaps, detergents, cosmetics, jewelry.",
+    "file": "cortaid.jpg",
+    "term": "cortaid"
+}, {
+    "name": "Dulcolax",
+    "text": "Treats constipation.",
+    "file": "dulcolax.jpg",
+    "term": "dulcolax"
+}, {
+    "name": "Excedrin",
+    "text": "Headache pain reliever.",
+    "file": "excedrin.jpg",
+    "term": "excedrin"
+}, {
+    "name": "Gaviscon",
+    "text": "Provides heartburn relief.",
+    "file": "gaviscon.jpg",
+    "term": "gaviscon"
+}, {
+    "name": "Lotrimin AF",
+    "text": "An antifungal medication that fights infections caused by fungus.",
+    "file": "lotrimin-af.jpg",
+    "term": "lotrimin af"
+}, {
+    "name": "Maalox Antacid",
+    "text": "Used to relieve acid indigestion, heartburn, and sour stomach symptoms.",
+    "file": "maalox-antacid.jpg",
+    "term": "maalox antacid"
+}, {
+    "name": "Midol",
+    "text": "Relieves symptoms of menstrual periods such as minor cramps, headache, bloating, backache, muscle aches, and fatigue.",
+    "file": "midol.png",
+    "term": "midol"
+}, {
+    "name": "Motrin IB",
+    "text": "Relieves pain from various conditions such as headache, dental pain, menstrual cramps, muscle aches, or arthritis.",
+    "file": "motrin-ib.jpg",
+    "term": "motrin ib"
+}, {
+    "name": "Orajel",
+    "text": "Relieves pain associated with mouth injuries such as canker sores, cold sores and fever blisters.",
+    "file": "orajel.png",
+    "term": "orajel"
+}, {
+    "name": "Pepto-Bismol",
+    "text": "Upset stomach reliever reliever/antidiarrheal",
+    "file": "pepto-bismol.jpg",
+    "term": "pepto bismol"
+}, {
+    "name": "Rolaids",
+    "text": "Antacid/Calcium and Magnesium Supplement",
+    "file": "rolaids.jpg",
+    "term": "rolaids"
+}, {
+    "name": "Tagamet HB",
+    "text": "Relieves and prevents heartburn and acid indigestion",
+    "file": "tagamet-hb.jpg",
+    "term": "tagamet hb"
+}, {
+    "name": "Tylenol",
+    "text": "Pain reliever and fever reducer",
+    "file": "tylenol.jpg",
+    "term": "tylenol"
+}, {
+    "name": "Zantac",
+    "text": "Prevents and relieves heartburn associated with acid indigestion and sour stomach",
+    "file": "zantac.jpg",
+    "term": "zantac"
+}, {
+    "name": "Sudafed",
+    "text": "Relieves sinus pressure, pain and congestion related to the common cold, allergies or other sinus problems.",
+    "file": "sudafed.jpg",
+    "term": "sudafed"
+}, {
+    "name": "Nyquil",
+    "text": "Intended for the relief of various symptoms of the common cold.",
+    "file": "nyquil.jpg",
+    "term": "nyquil"
+}, {
+    "name": "Tums",
+    "text": "Treats heartburn, sour stomach, acid indigestion, and upset stomach.",
+    "file": "tums.jpg",
+    "term": "tums"
+}, {
+    "name": "Mucinex",
+    "text": "Helps to thin and loosen mucus, relieve congestion, and suppress cough.",
+    "file": "mucinex.jpg",
+    "term": "mucinex"
+}, {
+    "name": "Afrin",
+    "text": "Eases nasal congestion and sinusitis.",
+    "file": "afrin.jpg",
+    "term": "afrin"
+}
+]
