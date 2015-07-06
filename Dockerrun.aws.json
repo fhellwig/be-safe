@@ -1,0 +1,18 @@
+{
+  "AWSEBDockerrunVersion": "1",
+    "Image": {
+    "Name": "buchananedwards/be-safe-base:latest",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": "8081"
+    }
+  ],
+  "Volumes": [
+    {
+     "ContainerDirectory": "/besafe",
+     "HostDirectory": "/var/app"
+    }
+  ]
+}

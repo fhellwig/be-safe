@@ -1,22 +1,22 @@
 {
-  "log": {
-    "level": "debug"
-  },
-  "gov": {
-    "fda": {
-      "open": {
-        "api_key": "you must set this to your open fda api key (1 of 4)"
-      }
-    }
-  },
-  "aws": {
-    "region": "you must set this to your aws region (2 of 4)",
-    "secretAccessKey": "you must set this to your secret aws access key (3 of 4)",
-    "accessKeyId": "you must set this to your aws access key id (4 of 4)"
-  },
-  "server": {
-    "port": 3000
-  },
+    "log": {
+        "level": "debug"
+    },
+    "gov": {
+        "fda": {
+            "open": {
+                "api_key": "you must set this to your open fda api key (1 of 4)"
+            }
+        }
+    },
+    "aws": {
+        "region": "you must set this to your aws region (2 of 4)",
+        "secretAccessKey": "you must set this to your secret aws access key (3 of 4)",
+        "accessKeyId": "you must set this to your aws access key id (4 of 4)"
+    },
+    "server": {
+        "port": 8081
+    },
   "emails": {
     "from_addr": "be-safe@buchanan-edwards.com",
     "subscribe": {

@@ -1,0 +1,32 @@
+# basic circle config
+# version .01
+machine:
+  services:
+    - docker
+  node:
+    version: 0.12.0
+
+  post:
+    - cd be-safe
+    - npm start:
+       background: true
+
+dependencies:
+  override:
+    - sudo apt-get install -y build-essential libssl-dev libffi-dev libxml2-dev libxslt-dev python-dev python-pip
+    - sudo pip install awscli
+
+deployment:
+  hub:
+    branch: develop
+    commands:
+      - docker info
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker build -t buchananedwards/be-safe .
+      - docker push buchananedwards/be-safe
+      - ./scripts/merge_to_master.sh
+  elasticbeanstalk:
+    branch: master
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - ./scripts/deploy.sh

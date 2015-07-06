@@ -16,6 +16,7 @@ frisby.create('Testing Adverse Reaction Events GET')
     .expectStatus(200)
 .toss();
 
+/*
 console.log('Testing Recalls GET')
 frisby.create('Testing Recalls GET')
     .get(link+'/#/api/drugs?brand_name=ibuprofen&search_type=recalls')
@@ -35,3 +36,4 @@ frisby.create('Testing All Email Subscription PUT')
         })
         .expectStatus(200)
 .toss();
+*/
