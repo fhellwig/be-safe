@@ -1,3 +1,5 @@
+https://be-safe.buchanan-edwards.com  
+
 # BE Safe
 
 BE Safe is a prototype application developed by [Buchanan & Edwards](http://www.buchanan-edwards.com) in response to RFQ 4QTFHS150004 issued by the General Services Administration (GSA).
@@ -10,8 +12,7 @@ The BE Safe prototype can be run on a desktop or mobile browser from the followi
 
 - [https://be-safe.buchanan-edwards.com](https://be-safe.buchanan-edwards.com)
 
-This URL is an alias to the actual deployed application running on Amazon Web Services (AWS) Elastic Beanstalk at 
-[http://be-safe.elasticbeanstalk.com](http://be-safe.elasticbeanstalk.com). The difference between these URLs is that the primary URL has an SSL certificate that is bound to the buchanan-edwards.com domain.
+This URL is an alias to the actual deployed application running on Amazon Web Services (AWS) Elastic Beanstalk in a Docker container at [http://besafedocker-envii.elasticbeanstalk.com/](http://besafedocker-envii.elasticbeanstalk.com/). 
 
 ### 1.1 Prototype Installation
 
@@ -46,13 +47,12 @@ Point your browser to <http://localhost:8081/> and use the BE Safe application. 
 
 #### Docker Installation
 
-From a computer running Windows, Mac or Linux, perform the following steps:
+The BE Safe application can be run from any computer that supports Docker using the following steps:
 
-1a. install boot2docker if on windows or mac   
-1b. install the lone docker package if on linux 
+1. install boot2docker if on windows or mac; install the lone docker package if on linux 
 2.	boot2docker ip # Write this down for later
-3.  boot2docker ssh
-4.  docker pull buchananedwards/be-safe
+3. boot2docker ssh
+4. docker pull buchananedwards/be-safe
 5.	docker run -p 8081:8081 -e "OPEN_FDA_API_KEY=YOUROPENFDAAPIKEY" -e "AWS_REGION=YOURAWSREGION" -e "AWS_ACCESS_KEY_ID=YOURAWSACCESSKEYID" -e "AWS_SECRET_ACCESS_KEY=YOURAWSSECRETACCESSKEY" buchananedwards/be-safe
 
 ## 2. Solution Approach
@@ -159,20 +159,20 @@ Our Agile development approach was tailored to the size, scope and timelines of 
 The BE team was assembled in February and conducted practice sessions to ensure we were ready to work together as an integrated team. The team came back together upon the solicitations release. We used less than 2 days to unpack, sketch and design. On the 2nd day we began daily sprints that included development, releases, demos, retrospectives and user story and backlog updates. At key points we incorporated user feedback including usability and acceptance testing.
 
 ## 4. Evidence Index  
-[Criteria a](docs/evidence/criteria-a.pdf)  
-[Criteria b](docs/evidence/criteria-b.pdf)  
-[Criteria c](docs/evidence/criteria-c.pdf)  
-[Criteria d](docs/evidence/criteria-d.pdf)  
-[Criteria e](docs/evidence/criteria-e.pdf)  
-[Criteria f](docs/evidence/criteria-f.pdf)  
-[Criteria g](docs/evidence/criteria-g.pdf)  
-[Criteria h](docs/evidence/criteria-h.pdf)  
-[Criteria i](docs/evidence/criteria-i.pdf)  
-[Criteria j](docs/evidence/criteria-j.pdf)  
-[Criteria k](docs/evidence/criteria-k.pdf)  
-[Criteria l](docs/evidence/criteria-l.pdf)  
-[Criteria m](docs/evidence/criteria-m.pdf)  
-[Criteria n](docs/evidence/criteria-n.pdf)  
-[Criteria o](docs/evidence/criteria-o.pdf)  
-[Criteria p](docs/evidence/criteria-p.pdf)  
-[Criteria q](docs/evidence/criteria-q.pdf)  
+[Criterion a](docs/evidence/criteria-a.pdf)  
+[Criterion b](docs/evidence/criteria-b.pdf)  
+[Criterion c](docs/evidence/criteria-c.pdf)  
+[Criterion d](docs/evidence/criteria-d.pdf)  
+[Criterion e](docs/evidence/criteria-e.pdf)  
+[Criterion f](docs/evidence/criteria-f.pdf)  
+[Criterion g](docs/evidence/criteria-g.pdf)  
+[Criterion h](docs/evidence/criteria-h.pdf)  
+[Criterion i](docs/evidence/criteria-i.pdf)  
+[Criterion j](docs/evidence/criteria-j.pdf)  
+[Criterion k](docs/evidence/criteria-k.pdf)  
+[Criterion l](docs/evidence/criteria-l.pdf)  
+[Criterion m](docs/evidence/criteria-m.pdf)  
+[Criterion n](docs/evidence/criteria-n.pdf)  
+[Criterion o](docs/evidence/criteria-o.pdf)  
+[Criterion p](docs/evidence/criteria-p.pdf)  
+[Criterion q](docs/evidence/criteria-q.pdf)  
