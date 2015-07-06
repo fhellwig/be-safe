@@ -1,0 +1,193 @@
+<div class="container hidden-xs">
+  <be-safe-carousel title="Click on the image to automatically search for this drug." seconds="5"></be-safe-carousel>
+</div>
+<div class="be-safe-divider hidden-xs"></div>
+<div class="container" ng-controller="SearchCtrl as vm">
+  <form class="search-form" ng-submit="vm.search(true)">
+    <div class="row">
+      <div class="col-ts-12">
+        <div class="input-group be-safe-form-group">
+          <input type="text" tabindex="1" name="search-term" ng-model="vm.criteria.brand" placeholder="Drug name" class="form-control" typeahead="term for term in vm.searchTerms | filter:$viewValue:vm.typeaheadContains | limitTo:10" typeahead-on-select="vm.typeaheadSelected($item)">
+          <span ng-click="vm.search(true)" class="input-group-addon"><span class="glyphicon glyphicon-search"></span> Search</span>
+        </div>
+        <div class="help-block">
+          Enter a drug name, such as <em>aspirin</em>, in the search area and select either drug recalls or adverse reactions. Press enter or click the search button.
+        </div>
+      </div>
+    </div>
+    <div class="row be-safe-form-group">
+      <div class="col-ts-3">
+        <label class="radio-inline">
+          <input type="radio" value="{{vm.options.type.recalls}}" name="search-type" ng-model="vm.criteria.type" ng-change="vm.search(false)"> Drug Recalls
+        </label>
+      </div>
+      <div class="col-ts-4">
+        <label class="radio-inline">
+          <input type="radio" value="{{vm.options.type.events}}" name="search-type" ng-model="vm.criteria.type" ng-change="vm.search(false)"> Adverse Reactions
+        </label>
+      </div>
+      <div class="col-ts-offset-1 col-ts-4">
+        <label for="date-range" class="sr-only">Date Range</label>
+        <select name="date-range" ng-model="vm.criteria.date" class="form-control" ng-change="vm.search(false)">
+          <option value="any">{{vm.options.date.any.text}}</option>
+          <option value="past30d">{{vm.options.date.past30d.text}}</option>
+          <option value="past60d">{{vm.options.date.past60d.text}}</option>
+          <option value="past90d">{{vm.options.date.past90d.text}}</option>
+          <option value="past12m">{{vm.options.date.past12m.text}}</option>
+          <option value="past5y">{{vm.options.date.past5y.text}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row be-safe-form-group" ng-show="vm.criteria.type === vm.options.type.events">
+      <div class="col-ts-3" ng-class="{'text-muted': vm.criteria.type !== vm.options.type.events}">
+        Advanced&nbsp;Options:
+      </div>
+      <div class="col-ts-4 nowrap">
+        <label class="radio-inline">
+          <input type="radio" value="male" name="search-sex" ng-model="vm.criteria.sex" ng-disabled="vm.criteria.type !== vm.options.type.events" ng-change="vm.search(false)"> {{vm.options.sex.male.text}}
+        </label>
+        <label class="radio-inline">
+          <input type="radio" value="female" name="search-sex" ng-model="vm.criteria.sex" ng-disabled="vm.criteria.type !== vm.options.type.events" ng-change="vm.search(false)"> {{vm.options.sex.female.text}}
+        </label>
+        <label class="radio-inline">
+          <input type="radio" value="any" name="search-sex" ng-model="vm.criteria.sex" ng-disabled="vm.criteria.type !== vm.options.type.events" ng-change="vm.search(false)"> {{vm.options.sex.any.text}}
+        </label>
+      </div>
+      <div class="col-ts-offset-1 col-ts-4">
+        <label for="age-range" class="sr-only">Age Range</label>
+        <select name="age-range" ng-model="vm.criteria.age" class="form-control" ng-disabled="vm.criteria.type !== vm.options.type.events" ng-change="vm.search(false)">
+          <option value="any">{{vm.options.age.any.text}}</option>
+          <option value="infant">{{vm.options.age.infant.text}}</option>
+          <option value="child">{{vm.options.age.child.text}}</option>
+          <option value="teen">{{vm.options.age.teen.text}}</option>
+          <option value="young">{{vm.options.age.young.text}}</option>
+          <option value="adult">{{vm.options.age.adult.text}}</option>
+          <option value="mid">{{vm.options.age.mid.text}}</option>
+          <option value="older">{{vm.options.age.older.text}}</option>
+          <option value="elderly">{{vm.options.age.elderly.text}}</option>
+        </select>
+      </div>
+    </div>
+  </form>
+  <!-- INITIAL STATE -->
+  <div ng-show="vm.message === null && vm.request === null && vm.results === null">
+    <p class="well flavor-text">
+      Drug recall and adverse reaction information directly from OpenFDA.
+    </p>
+  </div>
+  <!-- SEARCH IN PROGRESS STATE -->
+  <div ng-show="vm.waiting" style="margin-bottom:20px">
+    Searching for {{vm.request.brand}}...
+    <span class="pull-right">
+                Please wait.
+        </span>
+  </div>
+  <!-- SEARCH COMPLETED -->
+  <div ng-hide="vm.waiting || vm.results === null" style="margin-bottom:20px">
+    <a href ng-click="vm.subscribe()"><span class="glyphicon glyphicon-envelope"></span> Subscribe to Updates</a>
+    <span class="pull-right">
+                <a href ui-sref="app.search" ui-sref-opts="{inherit:false}"><span class="glyphicon glyphicon-remove"></span> Clear</a>
+    </span>
+  </div>
+  <!-- ERROR STATE -->
+  <p ng-show="vm.message !== null" class="text-danger">
+    Error: {{vm.message}}
+  </p>
+  <!-- NO RESULTS -->
+  <p ng-show="vm.results !== null && vm.results.length == 0" class="text-danger">
+    <span ng-show="vm.request.type === vm.options.type.recalls">No drug recalls for <span class="text-primary">{{vm.request.brand}}</span> given your current search criteria. (Try adverse reactions instead.)</span>
+    <span ng-show="vm.request.type === vm.options.type.events">No adverse reactions for <span class="text-primary">{{vm.request.brand}}</span> given your current search criteria.</span>
+  </p>
+  <!-- RESULTS FOUND -->
+  <div ng-show="vm.results !== null && vm.results.length > 0" ng-class="{searching: vm.waiting}">
+    <table style="width:100%;margin-bottom:20px">
+      <tr>
+        <td>
+          <button class="btn btn-primary btn-xs" ng-disabled="vm.atBeginning()" ng-click="vm.prev()"><span class="glyphicon glyphicon-chevron-left"></span> Prev</button>
+        </td>
+        <td align="center" style="white-space:nowrap">
+          <span ng-show="vm.total() === 0">No Records</span>
+          <span ng-show="vm.total() === 1">One Record</span>
+          <span ng-show="vm.total() > 1">Records {{vm.first()}}-{{vm.last()}} of {{vm.total()}}</span>
+        </td>
+        <td align="right">
+          <button class="btn btn-primary btn-xs" ng-disabled="vm.atEnd()" ng-click="vm.next()">Next <span class="glyphicon glyphicon-chevron-right"></span></button>
+        </td>
+      </tr>
+    </table>
+    <table class="table hidden-xs">
+      <thead>
+        <tr>
+          <th style="width:8em">Date</th>
+          <th ng-show="vm.request.type === vm.options.type.recalls">Drug recalls for {{vm.request.brand}}</th>
+          <th ng-show="vm.request.type === vm.options.type.events">Adverse reactions to {{vm.request.brand}}</th>
+          <th class="text-right minwidth">Share</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="r in vm.results">
+          <td class="minwidth">{{r.timestamp | timestamp}}</td>
+          <td>
+            <span ng-if="vm.request.type === 'recalls'">{{r.reason}} <span class="small text-muted">({{r.product}})</span><span ng-if="r.duplicate" class="text-danger"> <b>(Duplicate)</b></span></span>
+            <span ng-if="vm.request.type === 'events'">{{r | event}}</span>
+          </td>
+          <td class="text-right minwidth">
+            <span ng-show="vm.shared != r"><a href ng-click="vm.share(r)"><span class="glyphicon glyphicon-share"></span></a>
+            </span>
+            <span ng-show="vm.shared == r" class="text-right minwidth">
+                        <a ng-show="vm.request.type === 'events'" ng-click="vm.report(r)" class="btn btn-social-icon btn-xs btn-pinterest">
+                            <i class="fa fa-medkit"> </i>
+                        </a>
+                        <a class="btn btn-social-icon btn-xs btn-twitter" target="_blank" href="{{vm.shareLinks.twitter}}">
+                            <i class="fa fa-twitter"> </i>
+                        </a>
+                        <a class="btn btn-social-icon btn-xs btn-facebook" target="_blank" href="{{vm.shareLinks.facebook}}">
+                            <i class="fa fa-facebook"> </i>
+                        </a>
+                        <a href ng-click="vm.share()"><span class="glyphicon glyphicon-remove"></span></a>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="visible-xs-block">
+      <h4 ng-show="vm.request.type === vm.options.type.recalls">Drug recalls for {{vm.request.brand}}</h4>
+      <h4 ng-show="vm.request.type === vm.options.type.events">Adverse reactions to {{vm.request.brand}}</h4>
+      <p ng-repeat="r in vm.results">
+        <strong>{{r.timestamp | timestamp}}</strong>
+        <span ng-if="vm.request.type === 'recalls'">{{r.reason}} <span class="small text-muted">({{r.product}})</span><span ng-if="r.duplicate" class="text-danger"> <b>(Duplicate)</b></span></span>
+        <span ng-if="vm.request.type === 'events'">{{r | event}}</span>
+        &nbsp;
+        <span ng-show="vm.shared != r"><a href ng-click="vm.share(r)"><span class="glyphicon glyphicon-share"></span></a>
+        </span>
+        <span ng-show="vm.shared == r" class="text-right minwidth">
+                        <a href ng-click="vm.share()"><span class="glyphicon glyphicon-remove"></span></a>
+        <a ng-show="vm.request.type === 'events'" ng-click="vm.report(r)" class="btn btn-social-icon btn-xs btn-pinterest">
+          <i class="fa fa-medkit"> </i>
+        </a>
+        <a class="btn btn-social-icon btn-xs btn-twitter" target="_blank" href="{{vm.shareLinks.twitter}}">
+          <i class="fa fa-twitter"> </i>
+        </a>
+        <a class="btn btn-social-icon btn-xs btn-facebook" target="_blank" href="{{vm.shareLinks.facebook}}">
+          <i class="fa fa-facebook"> </i>
+        </a>
+        </span>
+      </p>
+    </div>
+    <table style="width:100%">
+      <tr>
+        <td>
+          <button class="btn btn-primary btn-xs" ng-disabled="vm.atBeginning()" ng-click="vm.prev()"><span class="glyphicon glyphicon-chevron-left"></span> Prev</button>
+        </td>
+        <td align="center" style="white-space:nowrap">
+          <span ng-show="vm.total() === 0">No Records</span>
+          <span ng-show="vm.total() === 1">One Record</span>
+          <span ng-show="vm.total() > 1">Records {{vm.first()}}-{{vm.last()}} of {{vm.total()}}</span>
+        </td>
+        <td align="right">
+          <button class="btn btn-primary btn-xs" ng-disabled="vm.atEnd()" ng-click="vm.next()">Next <span class="glyphicon glyphicon-chevron-right"></span></button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

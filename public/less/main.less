@@ -1,0 +1,73 @@
+@import "_variables.less";
+@import "_colors.less";
+/*------------------------------------*/
+
+body {
+    padding-bottom: 70px;
+}
+
+#be-safe-header {
+    border: none;
+    border-radius: 0px;
+    margin-bottom: 0px;
+}
+
+#be-safe-header-logo {
+    margin-top: -10px;
+}
+
+#be-safe-content-header {
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    background-color: @be-blue-light;
+    height: 50px;
+    line-height: 50px;
+}
+
+#be-safe-footer {
+    border: none;
+    border-radius: 0px;
+    border-top: solid 2px @be-blue-light;
+    font-size: .8em;
+    line-height: 1.1em;
+    padding-top: 1em;
+    color: #999;
+    a {
+        color: @be-blue-light;
+        &:hover {
+            color: @be-blue-dark;
+        }
+    }
+}
+
+.navbar-default {
+    background-color: aliceblue;
+}
+
+.be-safe-divider {
+    height: 2px;
+    background-color: @be-blue-light;
+}
+
+#be-safe-content-header,
+.be-safe-divider {
+    margin-bottom: 30px;
+}
+
+span[ng-click] {
+    cursor: pointer;
+}
+
+.flavor-text {
+    text-align: center;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.minwidth {
+    width: 1px;
+    white-space: nowrap;
+}

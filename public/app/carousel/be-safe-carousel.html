@@ -1,0 +1,11 @@
+<div class="be-safe-carousel">
+    <carousel interval="interval">
+        <slide ng-repeat="image in images" active="image.active" xng-animate="'animate'">
+            <img ng-src="{{image.file}}" ng-click="selectImage(image)" class="my-image">
+            <div class="col-xs-offset-2 col-xs-8">
+                <h4>{{image.name}}</h4>
+                <em>{{image.text}}</em>
+            </div>
+        </slide>
+    </carousel>
+</div>

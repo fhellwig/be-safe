@@ -1,0 +1,545 @@
+[{
+        "name": "Aspirin",
+        "text": "Treats pain, fever, arthritis, and inflammation. It may also be used to reduce the risk of heart attack.",
+        "file": "aspirin.jpg",
+        "term": "aspirin"
+    }, {
+        "name": "Synthroid",
+        "text": "Treats hyperthyroidism, enlarged thyroid gland, and thyroid cancer",
+        "file": "synthroid.jpg",
+        "term": "synthroid"
+    }, {
+        "name": "Crestor",
+        "text": "Lowers high cholesterol and triglyceride levels.",
+        "file": "crestor.jpg",
+        "term": "crestor"
+    }, {
+        "name": "Nexium",
+        "text": "Treats heartburn, gastroesophageal reflux disease (GERD), stomach ulcers, and a damaged esophagus.",
+        "file": "nexium.jpg",
+        "term": "nexium"
+    }, {
+        "name": "Ventolin HFA",
+        "text": "Treats asthma, bronchitis, and similar breathing problems.",
+        "file": "ventolin-hfa.jpg",
+        "term": "ventolin hfa"
+    }, {
+        "name": "Advair Diskus",
+        "text": "Prevents symptoms of asthma or COPD (chronic obstructive pulmonary disease).",
+        "file": "advair-diskus.jpg",
+        "term": "advair diskus"
+    }, {
+        "name": "Cymbalta",
+        "text": "Treats depression, anxiety, diabetic peripheral neuropathy, fibromyalgia, or chronic muscle or bone pain.",
+        "file": "cymbalta.jpg",
+        "term": "cymbalta"
+    }, {
+        "name": "Diovan",
+        "text": "Treats high blood pressure and heart failure. May lower the risk of death in patients who have had a heart attack.",
+        "file": "diovan.jpg",
+        "term": "diovan"
+    }, {
+        "name": "Vyvanse",
+        "text": "Treats attention deficit hyperactivity disorder (ADHD). This medicine is a stimulant.",
+        "file": "vyvanse.jpg",
+        "term": "vyvanse"
+    }, {
+        "name": "Lantus Solostar",
+        "text": "Treats diabetes.",
+        "file": "lantus-solostar.jpg",
+        "term": "lantus solostar"
+    }, {
+        "name": "Lyrica",
+        "text": "Treats nerve and muscle pain caused by diabetes, shingles, fibromyalgia, or a spinal cord injury.",
+        "file": "lyrica.jpg",
+        "term": "lyrica"
+    }, {
+        "name": "Spiriva Handihaler",
+        "text": "Prevents the symptoms of bronchospasm caused by emphysema, chronic bronchitis, or COPD (chronic obstructive pulmonary disease).",
+        "file": "spiriva-handihaler.jpg",
+        "term": "spiriva handihaler"
+    }, {
+        "name": "Lantus",
+        "text": "Treats diabetes.",
+        "file": "lantus.jpg",
+        "term": "lantus"
+    }, {
+        "name": "Celebrex",
+        "text": "Treats pain, including pain caused by arthritis in children and adults.",
+        "file": "celebrex.jpg",
+        "term": "celebrex"
+    }, {
+        "name": "Januvia",
+        "text": "Treats type 2 diabetes. Used together with proper diet and exercise to help control high blood sugar.",
+        "file": "januvia.jpg",
+        "term": "januvia"
+    }, {
+        "name": "Abilify",
+        "text": "Treats schizophrenia, bipolar disorder, and depression. Also treats irritability associated with autism.",
+        "file": "abilify.jpg",
+        "term": "abilify"
+    }, {
+        "name": "Namenda",
+        "text": "Treats dementia (memory loss and mental changes) that is a sign of Alzheimer's disease.",
+        "file": "namenda.jpg",
+        "term": "namenda"
+    }, {
+        "name": "Viagra",
+        "text": "Treats erectile dysfunction (trouble having an erection).",
+        "file": "viagra.jpg",
+        "term": "viagra"
+    }, {
+        "name": "Zetia",
+        "text": "Lowers cholesterol in your blood. May be used in combination with another cholesterol-lowering medicine called a 'statin.'",
+        "file": "zetia.jpg",
+        "term": "zetia"
+    }, {
+        "name": "Cialis",
+        "text": "Treats erectile dysfunction (trouble having an erection).",
+        "file": "cialis.jpg",
+        "term": "cialis"
+    }, {
+        "name": "Nasonex",
+        "text": "Treats nasal symptoms of both seasonal (outdoor) and year-round (indoor) allergic rhinitis in adults and children 2 years and older.",
+        "file": "nasonex.jpg",
+        "term": "nasonex"
+    }, {
+        "name": "Suboxone",
+        "text": "Treats moderate to severe chronic pain. This medicine is a narcotic analgesic.",
+        "file": "suboxone.jpg",
+        "term": "suboxone"
+    }, {
+        "name": "Bystolic",
+        "text": "Treats high blood pressure.",
+        "file": "bystolic.jpg",
+        "term": "bystolic"
+    }, {
+        "name": "Symbicort",
+        "text": "Prevents asthma attacks.",
+        "file": "symbicort.jpg",
+        "term": "symbicort"
+    }, {
+        "name": "Flovent HFA",
+        "text": "Flovent is a corticosteroid used to prevent bronchial asthma attacks. ",
+        "file": "flovent-hfa.jpg",
+        "term": "flovent hfa"
+    }, {
+        "name": "Oxycontin",
+        "text": "Treats moderate to severe pain when around-the-clock pain relief is needed for a long period of time.",
+        "file": "oxycontin.jpg",
+        "term": "oxycontin"
+    }, {
+        "name": "Levemir",
+        "text": "Treats diabetes mellitus. This medicine is a long-acting insulin.",
+        "file": "levemir.jpg",
+        "term": "levemir"
+    }, {
+        "name": "Nuvaring",
+        "text": "Used for birth control. This medicine is a contraceptive.",
+        "file": "nuvaring.jpg",
+        "term": "nuvaring"
+    }, {
+        "name": "Dexilant",
+        "text": "Treats heartburn, gastroesophageal reflux disease (GERD), or damaged esophagus.",
+        "file": "dexilant.jpg",
+        "term": "dexilant"
+    }, {
+        "name": "Benicar",
+        "text": "Angiotensin II receptor antagonist. Keeps blood vessels from narrowing, which lowers blood pressure and improves blood flow.",
+        "file": "benicar.jpg",
+        "term": "benicar"
+    }, {
+        "name": "Voltaren Gel",
+        "text": "Treats actinic keratoses. Also treats pain and swelling caused by arthritis. This is an NSAID.",
+        "file": "voltaren-gel.jpg",
+        "term": "voltaren gel"
+    }, {
+        "name": "Proventil HFA",
+        "text": "Treats asthma, bronchitis, and similar breathing problems. This medicine is a bronchodilator.",
+        "file": "proventil-hfa.jpg",
+        "term": "proventil hfa"
+    }, {
+        "name": "Xarelto",
+        "text": "This medicine is a blood thinner that treats and prevents blood clots.",
+        "file": "xarelto.jpg",
+        "term": "xarelto"
+    }, {
+        "name": "Premarin",
+        "text": "Treats hot flashes and other symptoms of menopause or low amounts of estrogen.",
+        "file": "premarin.jpg",
+        "term": "premarin"
+    }, {
+        "name": "Novolog",
+        "text": "Treats diabetes mellitus. This type of insulin is similar to regular insulin, but acts in the body more quickly.",
+        "file": "novolog.jpg",
+        "term": "novolog"
+    }, {
+        "name": "Tamiflu",
+        "text": "Treats and helps prevent influenza.",
+        "file": "tamiflu.jpg",
+        "term": "tamiflu"
+    }, {
+        "name": "Novolog Flexpen",
+        "text": "Treats diabetes mellitus. This type of insulin is similar to regular insulin, but acts in the body more quickly.",
+        "file": "novolog-flexpen.jpg",
+        "term": "novolog flexpen"
+    }, {
+        "name": "Vesicare",
+        "text": "Treats symptoms of an overactive bladder.",
+        "file": "vesicare.jpg",
+        "term": "vesicare"
+    }, {
+        "name": "Benicar HCT",
+        "text": "Angiotensin II receptor antagonist. Keeps blood vessels from narrowing, which lowers blood pressure and improves blood flow.",
+        "file": "benicar-hct.jpg",
+        "term": "benicar hct"
+    }, {
+        "name": "Humalog",
+        "text": "Treats diabetes mellitus. This type of insulin starts working faster than regular insulin.",
+        "file": "humalog.jpg",
+        "term": "humalog"
+    }, {
+        "name": "Afluria",
+        "text": "Influenza Vaccine for intramuscular injection",
+        "file": "afluria.jpg",
+        "term": "afluria"
+    }, {
+        "name": "Lumigan",
+        "text": "The eyedrops reduce pressure inside the eye. The eyelash solution helps eyelashes grow.",
+        "file": "lumigan.jpg",
+        "term": "lumigan"
+    }, {
+        "name": "Vytorin",
+        "text": "Lowers high cholesterol and triglyceride levels",
+        "file": "vytorin.jpg",
+        "term": "vytorin"
+    }, {
+        "name": "Toprol XL",
+        "text": "Beta-blocker used to treat angina and high blood pressure. ",
+        "file": "toprol-xl.jpg",
+        "term": "toprol xl"
+    }, {
+        "name": "Lunesta",
+        "text": "Treats insomnia (sleep disorder).",
+        "file": "lunesta.jpg",
+        "term": "lunesta"
+    }, {
+        "name": "Janumet",
+        "text": "Treats type 2 diabetes. Used together with proper diet and exercise to help control high blood sugar.",
+        "file": "janumet.jpg",
+        "term": "janumet"
+    }, {
+        "name": "Ortho Tri-Cyclen",
+        "text": "Treats moderate acne vulgaris in females at least 15 years of age",
+        "file": "ortho-tri-cyclen.jpg",
+        "term": "ortho tri-cyclen"
+    }, {
+        "name": "Pristiq",
+        "text": "Treats depression. This medicine is a selective serotonin and norepinephrine reuptake inhibitor (SNRI).",
+        "file": "pristiq.jpg",
+        "term": "pristiq"
+    }, {
+        "name": "Lo Loestrin Fe",
+        "text": "A combination medicine that contains female hormones that prevent ovulation",
+        "file": "lo-loestrin-fe.jpg",
+        "term": "lo loestrin-fe"
+    }, {
+        "name": "Focalin XR",
+        "text": "Indicated for the treatment of Attention Deficit Hyperactivity Disorder (ADHD) in patients aged 6 years and older.",
+        "file": "focalin-xr.jpg",
+        "term": "focalin-xr"
+    }, {
+
+    "name": "Travatan Z",
+    "text": "Eyedrops used for increased eye pressure and open-angle glaucoma",
+    "file":"travatan-z.jpg",
+    "term": "travatan z"
+}, {
+
+    "name":"Evista",
+    "text": "Treats and prevents osteoporosis in women",
+    "file": "evista.jpg",
+    "term": "evista"
+}, {
+
+    "name":"Pataday",
+    "text": "Eyedrops to prevent itchy, red, or watery eyes due to allergies",
+    "file": "pataday.jpg",
+    "term": "pataday"
+}, {
+
+    "name":"Combivent Respimat",
+    "text": "Used in treatment of chronic obstructive pulmonary disease (COPD)",
+    "file": "combivent-respimat.jpg",
+    "term": "combivent respimat"
+}, {
+
+    "name":"Avodart",
+    "text": "Used to treat benign prostatic hyperplasia (BPH) in men with an enlarged prostate",
+    "file": "avodart.jpg",
+    "term": "avodart"
+}, {
+
+    "name":"Pradaxa",
+    "text": "Prevents stroke and blood clots in petients with atrial fibrilation",
+    "file": "pradaxa.jpg",
+    "term": "pradaxa"
+}, {
+
+    "name":"Humalog Kwikpen",
+    "text": "Fast-acting form of Insulin used to treat type 1 (insulin-dependent) diabetes",
+    "file": "humalog-kwikpen.png",
+    "term": "humalog kwikpen"
+}, {
+
+    "name":"Seroquel XR",
+    "text": "Oral antipsychotic drug prescribed for treatment of schizophrenia",
+    "file": "seroquel-xr.jpg",
+    "term": "seroquel xr"
+}, {
+
+    "name":"Strattera",
+    "text": "Treats ADHD",
+    "file": "strattera.jpg",
+    "term": "straterra"
+}, {
+
+    "name":"Chantix",
+    "text": "Used to aid in quiting smoking",
+    "file": "chantix.jpg",
+    "term": "chantix"
+}, {
+
+    "name":"Exforge",
+    "text": "Treats high blood pressure",
+    "file": "exforge.jpg",
+    "term": "exforge"
+}, {
+
+    "name":"Exelon",
+    "text": "Treats dementia associated with Alzheimer's disease or Parkinson's disease",
+    "file": "exelon.jpg",
+    "term": "exelon"
+}, {
+
+    "name":"Humira",
+    "text": "Treats arthritis and Crohn disease",
+    "file": "humira.jpg",
+    "term": "humira"
+}, {
+
+    "name":"Loestrin 24 Fe",
+    "text": "Birth control, medicine to prevent ovulation",
+    "file": "loestrin.jpg",
+    "term": "loestrin"
+}, {
+
+    "name":"Victoza 3-Pak",
+    "text": "Used in treatment of type 2 diabetes and weight loss",
+    "file": "victoza.jpg",
+    "term": "victoza"
+}, {
+
+    "name":"Welchol",
+    "text": "Used in lowering cholesterol in the blood and improving glycemic control in people with type 2 diabetes.",
+    "file": "welchol.jpg",
+    "term": "welchol"
+}, {
+
+    "name":"Combigan",
+    "text": "Treats increased pressure in the eye caused by glaucoma or hypertension",
+    "file": "combigan.jpg",
+    "term": "combigan"
+}, {
+
+    "name":"Onglyza",
+    "text": "Medication for diabetics to help control blood sugar levels",
+    "file": "onglyza.jpg",
+    "term": "onglyza"
+}, {
+
+    "name":"Xopenex HFA",
+    "text": "Treating and preventing breathing problems in patient who have asthma or certain airway diseases",
+    "file": "xopenex-hfa.jpg",
+    "term": "xopenex"
+}, {
+
+    "name":"Detrol La",
+    "text": "Reduces spasms of the bladder muscles. Used to treat overactive bladder with symptoms of urinary frequency, urgency, and incontinence",
+    "file": "detrol-la.jpg",
+    "term": "detrol la"
+}, {
+
+    "name":"Premarin Vaginal",
+    "text": "Used for the relief of vaginal symptoms in postmenopausal women",
+    "file": "premarin-vaginal.jpg",
+    "term": "premarin vaginal"
+}, {
+
+    "name":"Minastrin 24 Fe",
+    "text": "Birth control pill",
+    "file": "minastrin.jpg",
+    "term": "minastrin"
+}, {
+
+    "name":"Enbrel",
+    "text": "Treats rheumatoid arthritis, psoriatic arthritis, and plaque psoriasis",
+    "file": "enbrel.jpg",
+    "term": "enbrel"
+}, {
+
+    "name":"Dulera",
+    "text": "Combination inhaler",
+    "file": "dulera.jpg",
+    "term": "dulera"
+}, {
+
+    "name":"Ranexa",
+    "text": "Treats chronic angina (chest pain)",
+    "file": "ranexa.jpg",
+    "term": "ranexa"
+}, {
+
+    "name":"Truvada",
+    "text": "Treats HIV infection. Also used to reduce the risk of HIV Infection.",
+    "file": "truvada.jpg",
+    "term": "truvada"
+}, {
+
+    "name":"Alphagan P",
+    "text": "Eye medication that is approved for lowering high eye pressure in patients with open-angle glaucoma or ocular hypertension",
+    "file": "alphagan-p.jpg",
+    "term": "alphagan p"
+}, {
+
+    "name":"Actonel",
+    "text": "Prevents or treats osteoporosis (weak bones)",
+    "file": "actonel.jpg",
+    "term": "actonel"
+}, {
+
+    "name":"Azor",
+    "text": "Treats high blood pressure",
+    "file": "azor.jpg",
+    "term": "azor"
+}, {
+
+    "name":"Effient",
+    "text": "Prevents strokes and heart attacks in patients who need to have percutaneous coronary intervention (PCI)",
+    "file": "effient.jpg",
+    "term": "effient"
+}, {
+
+    "name":"Viibryd",
+    "text": "Antidepressant used for treatment of major depressive disorder",
+    "file": "viibryd.jpg",
+    "term": "viibryd"
+}, {
+
+    "name":"Levitra",
+    "text": "Treats erectile dysfunction",
+    "file": "levitra.jpg",
+    "term": "levitra"
+}, {
+
+    "name":"Norvir",
+    "text": "Treats HIV infections. Does not cure HIV or AIDS, but may reduce the progress of the disease",
+    "file": "norvir.jpg",
+    "term": "norvir"
+}, {
+
+    "name":"Lipitor",
+    "text": "Lowers high cholesterol and triglyceride levels.",
+    "file": "lipitor.jpg",
+    "term": "lipitor"
+}, {
+
+    "name":"Tradjenta",
+    "text": "Treats type 2 diabetes. Used with proper dieting and exercise to control high blood sugar levels",
+    "file": "tradjenta.jpg",
+    "term": "tradjenta"
+}, {
+
+    "name":"Aggrenox",
+    "text": "Keeps blood clots from forming after some types of heart surgery. Also used to prevent strokes and heart attacks",
+    "file": "aggrenox.jpg",
+    "term": "aggrenox"
+}, {
+
+    "name":"Patanol",
+    "text": "Used to treat itching, burning, redness, watering, and other eye symptoms caused by allergic conditions",
+    "file": "patanol.jpg",
+    "term": "patanol"
+}, {
+
+    "name":"Amitiza",
+    "text": "Treats constipation and irritable bowel syndrome (IBS)",
+    "file": "amitiza.jpg",
+    "term": "amitiza"
+}, {
+
+    "name":"Advair HFA",
+    "text": "Used to help in asthma",
+    "file": "advair-hfa.jpg",
+    "term": "advair hfa"
+}, {
+
+    "name":"Lotemax",
+    "text": "Treats redness, itching, or watering of the eyes.",
+    "file": "lotemax.jpg",
+    "term": "lotemax"
+}, {
+
+    "name":"Uloric",
+    "text": "Used to treat hyperuricemia in patients with gout",
+    "file": "uloric.jpg",
+    "term": "uloric"
+}, {
+
+    "name":"Ortho Evra 3",
+    "text": "Contraceptive patch used for the prevention of pregnancy",
+    "file": "ortho-evra-3.jpg",
+    "term": "ortho evra 3"
+}, {
+
+    "name":"Asmanex Twisthaler",
+    "text": "Used as maintenance treatment that helps prevent and control asthma symptoms",
+    "file": "asmanex-twisthaler.jpg",
+    "term": "asmanex twisthaler"
+}, {
+
+    "name":"Prempro Low Dose",
+    "text": "Used to treat the symptoms of menopause such as hot flashes",
+    "file": "prempro.jpg",
+    "term": "prempo"
+}, {
+
+    "name":"Micardis",
+    "text": "Treats high blood pressure. Can reduce the risk of stroke and heart attack",
+    "file": "micardis.jpg",
+    "term": "micardis"
+}, {
+
+    "name":"Atripla",
+    "text": "Treats HIV infection",
+    "file": "atripla.jpg",
+    "term": "atripla"
+}, {
+
+    "name":"Novolog Flexpen Mix",
+    "text": "Used for fast-acting insulin to treat type 1 diabetes",
+    "file": "novolog-flexpen.jpg",
+    "term": "novolog flexpen"
+}, {
+
+    "name":"Aciphex",
+    "text": "Treats heartburn, stomach ulcers, and gastroesophageal reflux (GERD).",
+    "file": "aciphex.jpg",
+    "term": "aciphex"
+}, {
+
+    "name":"Humulin N",
+    "text": "Intermediate-acting insuling used to treat diabetes",
+    "file": "humulin-n.jpg",
+    "term": "humulin n"
+}]

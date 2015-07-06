@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BE Safe</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,700,400' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="lib/third-party.css">
+    <link rel="stylesheet" type="text/css" href="lib/webapp.css">
+</head>
+
+<body>
+    <ui-view name="header"></ui-view>
+    <div id="be-safe-content-header">
+        Search &#8226; Subscribe &#8226; Stay Informed
+    </div>
+    <ui-view name="content">Loading the BE Safe application...</ui-view>
+    <ui-view name="footer"></ui-view>
+    <script type="text/javascript" src="lib/third-party.js"></script>
+    <script type="text/javascript" src="lib/webapp.js"></script>
+</body>
+
+</html>
