@@ -4,7 +4,7 @@ https://be-safe.buchanan-edwards.com
 
 BE Safe is a prototype application developed by [Buchanan & Edwards](http://www.buchanan-edwards.com) in response to RFQ 4QTFHS150004 issued by the General Services Administration (GSA).
 
-BE Safe is an AngularJS web application running on a Node.js/Express API and is deployable across a platforms. It accesses the OpenFDA API and allows users to search for drug recalls and adverse reactions. Users can subscribe to alerts and receive notifications of new recalls and reactions based on their search criteria. Users can share their results on social media and also submit their own individual adverse reactions.
+BE Safe is an AngularJS web application running on a Node.js/Express API and is deployable across platforms. It accesses the OpenFDA API and allows users to search for drug recalls and adverse reactions. Users can subscribe to alerts and receive notifications of new recalls and reactions. Users can share their results on social media and also submit their own adverse reactions.
 
 ## 1. Operational Prototype 
 
@@ -50,7 +50,7 @@ Point your browser to <http://localhost:8081/> and use the BE Safe application. 
 The BE Safe application can be run from any computer that supports Docker using the following steps:
 
 1. install boot2docker if on windows or mac; install the lone docker package if on linux 
-2.	boot2docker ip # Write this down for later
+2.	boot2docker ip # (Write this down for later)
 3. boot2docker ssh
 4. docker pull buchananedwards/be-safe
 5.	docker run -p 8081:8081 -e "OPEN_FDA_API_KEY=YOUROPENFDAAPIKEY" -e "AWS_REGION=YOURAWSREGION" -e "AWS_ACCESS_KEY_ID=YOURAWSACCESSKEYID" -e "AWS_SECRET_ACCESS_KEY=YOURAWSSECRETACCESSKEY" buchananedwards/be-safe
@@ -63,11 +63,11 @@ Our solution followed these principles:
 
 2. **Architecture** - Implement a modern UI/API architecture with a Single Page Application (SPA) connected to an independently-testable Application Programming Interface (API).
 
-3. **User-Centric** - Adopt a mobile-first approach by acknowledging the trend that mobile devices are used in ever-increasing numbers for web access.
+3. **User-Centric** - Enable our target users to access the application on any device, involving users at every point in our process as well as during usability testing.
 
-4. **Devops** - Make continuous build, test, and deployment an integral part of the project workflow and couple the results directly into our product backlog.
+4. **DevOps** - Make continuous build, test, and deployment an integral part of the project workflow and couple the results directly into our product backlog.
 
-We will now discuss each of these principles and reference the required points outlined in the RFQ.
+Each of these principles are discussed below, along with the required points outlined in the RFQ.
 
 ### 2.1 The Team
 
@@ -84,23 +84,23 @@ Our team was led by Brian Shafer who was responsible for the overall operation o
 - Delivery Manager  
 - Business Analyst
 
-We wanted to ensure that we had a team that could provide technical competence and one that delivered *process* to achieve the best *product*.
+The labor categories and mapping to our GSA Schedule 70 is fully documented and was submitted to eBuy as directed in the RFQ.
 
-The labor categories and mapping to our GSA Schedule 70 is fully documented in the evidence portion of this RFQ response.
+The team provided technical competence via an Agile process to achieve the best *product*.
 
 We incorporated the following 18F guiding principles into our approach.
 
-1. **Put the needs of users first** - multiple team members running the application during our sprints, providing immediate usability feedback and noting any issues on mobile devices.
+1. **Put the needs of users first** - We had multiple team members running the application during our sprints, providing immediate usability feedback and noting any issues on mobile devices.
 
-2. **Release early, iteratively, and often** - We continuously auto-deployed from our Git development branch so any deployment issues would be known immediately. This gave our sample users a frequently-refreshed build that they could evaluate on a continuous basis.
+2. **Release early, iteratively, and often** - We continuously auto-deployed from our Git development branch so any deployment issues would be known immediately. This gave our sample users a periodically and frequently refreshed build that they could evaluate.
 
-3. **Don’t slow down delivery** - Instead of developing the API first and then the user interface, we worked in parallel, taking a wholistic approach so that a working application could be delivered and tested sooner rather than later.
+3. **Don’t slow down delivery** - Instead of developing the API first and then the user interface, we worked in parallel, taking a holistic approach so that a working application could be delivered and tested sooner rather than later.
 
-4. **Only do it if it adds value** - We balanced adding new features against the potential for feature bloat and possible user confusion. We focused on the value proposition, delivering core features, their reliability and efficiency over flash.
+4. **Only do it if it adds value** - We balanced adding new features against the potential for feature bloat and possible user confusion. We focused on the value proposition, delivering core features, and their reliability and efficiency over flash.
 
 5. **Work in the open** - We leveraged only open source code and incorporated open source projects produced by Buchanan & Edwards and available on GitHub into the BE Safe application. Ultimately, we released our work in a public repository.
 
-We interpret that last point, *work in the open*, on a more personal level. During the course of developing this prototype, none of our team members worked in cubicles. Just as deploying early and often was critical, so too was an open atmosphere of team members collaborating in a single room, sharing ideas and working towards a common goal. We employed pair-programming so that no one person was stuck and was always collaborating with another developer at their side.
+We interpret this last point, *work in the open*, on a more personal level. During the course of developing this prototype, our team members worked in a single room, sharing ideas in an open forum, and collaborating towards a common goal. We employed pair-programming so that no one person was stuck and had another developer at their side.
 
 ### 2.2 The Architecture
 
@@ -128,13 +128,12 @@ An examination of both our `package.json` and `bower.json` files will reveal all
  
 9. **Docker** - A container-as-a-service platform for packaging our application in addition to AWS deployment.
 
-Our architecture also fulfills user's expectations and is deployable and testable in a variety of configurations. The next two sections discuss these important points.
 
 ### 2.3 Our Users
 
-We took a mobile-first approach to our application. Using the Bootstrap CSS framework to build a cross-browser and cross-device application.
+We took a responsive design approach to our application using the Bootstrap CSS framework to build a cross-browser and cross-device application.
 
-Our business analyst ensured that we used user-centric approaches to our development. We included people in every aspect of our efforts including envisioning, design and development. We conducted usability testing with a group of employees that were not part of this proposal effort. All responses were captured and put into our Jira backlog. Most of the feedback concerned issues where application use was clear to the developers but proved less intuitive to an uninitiated user. This was an important part of our software development life cycle.
+Our business analyst ensured that we used user-centric approaches to our development. We included target users in every aspect of our efforts including envisioning, designing and development. We conducted usability testing with a group of employees that were not part of development. All responses were captured and put into our Jira backlog. Most of the feedback were issues where our application proved less intuitive to an uninitiated user. This was an important part of our software development life cycle.
 
 
 ### 2.4 Deployment and Operations
@@ -143,7 +142,7 @@ Our business analyst ensured that we used user-centric approaches to our develop
 
 We set up automatic deployment to both Microsoft Azure and AWS Elastic Beanstalk at the very beginning of the project. This deployment approach ensured that we *could* deploy to multiple environments and that our software was platform-independent.
 
-For Azure, we pull directly from GitHub. Azure proved to be a solid test asset as it was continuously updated on commits. For AWS, we used the Circle CI tool to build, run automated tests, build the docker container and then deploy to AWS Elastic Beanstalk on successful completion of those tests.
+For Azure, we pulled directly from GitHub. Azure proved to be a solid test asset as it was continuously updated on commits. For AWS, we used the Circle CI tool to build, ran automated tests, built the docker container and then deployed to AWS Elastic Beanstalk.
 
 #### 2.4.1 Continuous Monitoring
 
@@ -151,28 +150,28 @@ We used AWS CloudWatch for continuous monitoring to ensure a baseline knowledge 
 
 #### 2.4.2 Docker Containers
 
-We leveraged Docker to containerize our application as it integrated nicely with our source control, CI and deployment approaches. Docker is well recognized and supported and met our needs for configuration management, continuous integration and ease of deployment and distribution.  
+We leveraged Docker to put our application in a container as it integrated nicely with our source control, CI and deployment approaches. Docker met our needs for configuration management, continuous integration and ease of deployment and distribution.  
 
 ## 3. Development Approach
-Our Agile development approach was tailored to the size, scope and timelines of this effort. Specifically we condensed Google’s Ventures Design Sprint (http://www.gv.com/sprint/) into less than 2 days and conducted daily sprints vs. 2 week sprints. 
+Our Agile development approach was tailored to the size, scope and timelines of this effort. Specifically we condensed Google’s Ventures Design Sprint (http://www.gv.com/sprint/) into less than 2 days and conducted daily sprints versus 2 week sprints. 
 
-The BE team was assembled in February and conducted practice sessions to ensure we were ready to work together as an integrated team. The team came back together upon the solicitations release. We used less than 2 days to unpack, sketch and design. On the 2nd day we began daily sprints that included development, releases, demos, retrospectives and user story and backlog updates. At key points we incorporated user feedback including usability and acceptance testing.
+The BE team was assembled in February and conducted practice sessions to ensure we were ready to work together as an integrated team. The team came back together upon the solicitations release. We used less than 2 days to unpack, sketch and design. On the second day we began daily sprints that included development, releases, demos, retrospectives and user story and backlog updates. At key points we incorporated user feedback including usability and acceptance testing.
 
 ## 4. Evidence Index  
-[Criterion a](docs/evidence/criteria-a.pdf)  
-[Criterion b](docs/evidence/criteria-b.pdf)  
-[Criterion c](docs/evidence/criteria-c.pdf)  
-[Criterion d](docs/evidence/criteria-d.pdf)  
-[Criterion e](docs/evidence/criteria-e.pdf)  
-[Criterion f](docs/evidence/criteria-f.pdf)  
-[Criterion g](docs/evidence/criteria-g.pdf)  
-[Criterion h](docs/evidence/criteria-h.pdf)  
-[Criterion i](docs/evidence/criteria-i.pdf)  
-[Criterion j](docs/evidence/criteria-j.pdf)  
-[Criterion k](docs/evidence/criteria-k.pdf)  
-[Criterion l](docs/evidence/criteria-l.pdf)  
-[Criterion m](docs/evidence/criteria-m.pdf)  
-[Criterion n](docs/evidence/criteria-n.pdf)  
-[Criterion o](docs/evidence/criteria-o.pdf)  
-[Criterion p](docs/evidence/criteria-p.pdf)  
-[Criterion q](docs/evidence/criteria-q.pdf)  
+[Evidence a](docs/evidence/evidence-a.pdf)  
+[Evidence b](docs/evidence/evidence-b.pdf)  
+[Evidence c](docs/evidence/evidence-c.pdf)  
+[Evidence d](docs/evidence/evidence-d.pdf)  
+[Evidence e](docs/evidence/evidence-e.pdf)  
+[Evidence f](docs/evidence/evidence-f.pdf)  
+[Evidence g](docs/evidence/evidence-g.pdf)  
+[Evidence h](docs/evidence/evidence-h.pdf)  
+[Evidence i](docs/evidence/evidence-i.pdf)  
+[Evidence j](docs/evidence/evidence-j.pdf)  
+[Evidence k](docs/evidence/evidence-k.pdf)  
+[Evidence l](docs/evidence/evidence-l.pdf)  
+[Evidence m](docs/evidence/evidence-m.pdf)  
+[Evidence n](docs/evidence/evidence-n.pdf)  
+[Evidence o](docs/evidence/evidence-o.pdf)  
+[Evidence p](docs/evidence/evidence-p.pdf)  
+[Evidence q](docs/evidence/evidence-q.pdf)  
