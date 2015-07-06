@@ -1,33 +1,32 @@
-(function () {
+(function() {
 
-    var module = angular.module('app', [
-        'ui.router',
-        'ui.bootstrap',
-        'jsend',
-        'app.search',
-        'app.email',
-        'app.help'
-    ]);
+  var module = angular.module('app', [
+    'ui.router',
+    'ui.bootstrap',
+    'strformat',
+    'jsend',
+    'app.search',
+    'app.email',
+    'app.help'
+  ]);
 
-    function config($stateProvider, $urlRouterProvider, jsendProvider) {
+  function config($stateProvider, $urlRouterProvider) {
 
-        $stateProvider
-            .state('app', {
-                abstract: true,
-                views: {
-                    'header@': {
-                        templateUrl: 'app/shared/header.html'
-                    },
-                    'footer@': {
-                        templateUrl: 'app/shared/footer.html'
-                    }
-                }
-            });
+    $stateProvider
+      .state('app', {
+        abstract: true,
+        views: {
+          'header@': {
+            templateUrl: 'app/shared/header.html'
+          },
+          'footer@': {
+            templateUrl: 'app/shared/footer.html'
+          }
+        }
+      });
 
-        $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/');
+  }
 
-        jsendProvider.setRelativeBase('/api');
-    }
-
-    module.config(config);
+  module.config(config);
 })();
