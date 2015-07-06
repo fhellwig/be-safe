@@ -1,6 +1,6 @@
 FROM buchananedwards/be-safe-base
 
-EXPOSE 3000
+EXPOSE 8081
 
 # startup
 ADD start.sh /tmp/
