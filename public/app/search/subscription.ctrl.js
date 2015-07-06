@@ -1,6 +1,6 @@
 (function(module) {
 
-  function SubscriptionCtrl($scope, $state, $modalInstance, jsend) {
+  function SubscriptionCtrl($scope, $state, $modalInstance, besafe) {
     var vm = this;
     vm.email = null;
 
@@ -8,20 +8,18 @@
       var unsubscribeLink = $state.href('app.email.unsubscribe', null, {
         absolute: true
       });
-      jsend('/subscribe').put({
-        email: vm.email,
-        query: $scope.query,
-        unsubscribeLink: unsubscribeLink
-      }).then(function(
-        res) {
-        $modalInstance.close();
-        alert(
-          'You will now receive email notifications from BE Safe.');
-      }, function(res) {
-        $modalInstance.close();
-        alert('There was an error requesting the subscription.\n\n' +
-          res.message);
-      });
+      besafe.subscribe(vm.email, $scope.query, unsubscribeLink).then(
+        function(response) {
+          $modalInstance.close();
+          alert(
+            'You will now receive email notifications from BE Safe.');
+        },
+        function(response) {
+          $modalInstance.close();
+          alert('There was an error requesting the subscription.\n\n' +
+            response.message);
+        }
+      );
     };
 
     vm.cancel = function() {

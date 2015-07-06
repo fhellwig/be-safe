@@ -14,7 +14,7 @@
     "angular-bootstrap": "~0.13.0",
     "angular-ui-router": "~0.2.15",
     "font-awesome": "~4.3",
-    "angular-jsend": "~0.0.8",
+    "angular-jsend": "~0.1.0",
     "strformat": "~0.0.7"
   }
 }
