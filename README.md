@@ -1,6 +1,8 @@
-https://be-safe.buchanan-edwards.com  
-
 # BE Safe
+
+- The BE Safe application URL: <https://be-safe.buchanan-edwards.com>
+
+- The BE Safe GitHub public repository URL: <https://github.com/buchanan-edwards/be-safe>
 
 BE Safe is a prototype application developed by [Buchanan & Edwards](http://www.buchanan-edwards.com) in response to RFQ 4QTFHS150004 issued by the General Services Administration (GSA).
 
@@ -8,11 +10,8 @@ BE Safe is an AngularJS web application running on a Node.js/Express API and is 
 
 ## 1. Operational Prototype 
 
-The BE Safe prototype can be run on a desktop or mobile browser from the following URL:
-
-- [https://be-safe.buchanan-edwards.com](https://be-safe.buchanan-edwards.com)
-
-This URL is an alias to the actual deployed application running on Amazon Web Services (AWS) Elastic Beanstalk in a Docker container at [http://besafedocker-envii.elasticbeanstalk.com/](http://besafedocker-envii.elasticbeanstalk.com/). 
+The [BE Safe](https://be-safe.buchanan-edwards.com) prototype can be run on a desktop or mobile browser. Our SSL certificate is bound to that URL but it is an alias to a [Docker container running on AWS](http://besafedocker-envii.elasticbeanstalk.com/).
+We also co-deploy to an [Azure Web App](https://be-safe.azurewebsites.net) that we use for testing and staging.
 
 ### 1.1 Prototype Installation
 
@@ -33,10 +32,9 @@ $ git clone https://github.com/buchanan-edwards/be-safe.git
 $ cd be-safe
 ```
 
-Edit the `config/default.json` file in the repository and update the four all-uppercase environment settings at the top of that file. 
-These settings specify the OpenFDA API key as well as the AWS settings used for SMTP.
+In the `config` directory is a `local-example.json` file. Please **copy or rename** this file to `local.json`. Then, edit this file and set your own OpenFDA API key as well as the AWS settings used for SMTP.
 
-Install the dependencies and start the server:
+Next, install the dependencies and start the server:
 
 ```bash
 $ npm install
