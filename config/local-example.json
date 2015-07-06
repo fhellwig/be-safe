@@ -1,0 +1,16 @@
+// local-example.json
+//
+// 1. Edit this file and replace the strings with your own values.
+//
+// 2. Then, rename this file to local.json before you start the server.
+//
+// THIS IS IMPORTANT - YOU MUST RENAME THE FILE TO local.json
+
+{
+  "env": {
+    "OPEN_FDA_API_KEY": "This is the key for the OpenFDA API",
+    "AWS_REGION": "The region (e.g., us-west-2)",
+    "AWS_ACCESS_KEY_ID": "Your access key ID (e.g., UISF9342MJSDF832J)",
+    "AWS_SECRET_ACCESS_KEY": "Your secret AWS key (e.g., 1834ksuREj83UD8slil)",
+  }
+}
