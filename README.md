@@ -1,8 +1,6 @@
+[https://be-safe.buchanan-edwards.com](https://be-safe.buchanan-edwards.com)
+
 # BE Safe
-
-- The BE Safe application URL: <https://be-safe.buchanan-edwards.com>
-
-- The BE Safe GitHub public repository URL: <https://github.com/buchanan-edwards/be-safe>
 
 BE Safe is a prototype application developed by [Buchanan & Edwards](http://www.buchanan-edwards.com) in response to RFQ 4QTFHS150004 issued by the General Services Administration (GSA).
 
@@ -48,10 +46,10 @@ Point your browser to <http://localhost:8081/> and use the BE Safe application. 
 The BE Safe application can be run from any computer that supports Docker using the following steps:
 
 1. install boot2docker if on windows or mac; install the lone docker package if on linux 
-2.	boot2docker ip # (Write this down for later)
+2. boot2docker ip # (Write this down for later)
 3. boot2docker ssh
 4. docker pull buchananedwards/be-safe
-5.	docker run -p 8081:8081 -e "OPEN_FDA_API_KEY=YOUROPENFDAAPIKEY" -e "AWS_REGION=YOURAWSREGION" -e "AWS_ACCESS_KEY_ID=YOURAWSACCESSKEYID" -e "AWS_SECRET_ACCESS_KEY=YOURAWSSECRETACCESSKEY" buchananedwards/be-safe
+5. docker run -p 8081:8081 -e "OPEN_FDA_API_KEY=YOUROPENFDAAPIKEY" -e "AWS_REGION=YOURAWSREGION" -e "AWS_ACCESS_KEY_ID=YOURAWSACCESSKEYID" -e "AWS_SECRET_ACCESS_KEY=YOURAWSSECRETACCESSKEY" buchananedwards/be-safe
 
 ## 2. Solution Approach
 
