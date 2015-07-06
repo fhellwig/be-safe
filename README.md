@@ -21,8 +21,8 @@ The BE Safe application can be run on any platform supporting Node.js. Here is t
 
 Prerequisites
 
-- A Git client
-- Node.js (including npm)
+- [A Git client](https://git-scm.com/downloads)
+- [Node.js](https://nodejs.org/) (v0.12.6 is recommended)
 - A command prompt or terminal shell window
 
 Clone our GitHub repository.
