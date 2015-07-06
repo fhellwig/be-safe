@@ -1,59 +1,69 @@
 // This service provides varous methods that access the BE Safe API.
 (function(module) {
 
-  function service($q, jsend) {
-
-    var api = {
-      version: jsend('/version'),
-      drugs: jsend('/drugs'),
-      images: jsend('/carousel'),
-      names: jsend('/carousel/terms'),
-      subscribe: jsend('/subscribe'),
-      unsubscribe: function(uuid) {
-        return jsend('/subscribe/{0}', uuid);
-      }
-    };
+  function service($q, strformat, jsend) {
 
     function version() {
-      return api.version.get().then(function(response) {
-        return response.data;
-      });
+      return jsend({
+        method: 'GET',
+        url: '/api/version'
+      }).then(
+        function(response) {
+          return response.data;
+        }
+      );
     }
 
     // Searches for recalls or events. Returns a promise that is either
     // resolved with the response data or rejected with an error message.
     function search(query) {
-      var deferred = $q.defer();
-      return api.drugs.get(query).then(function(response) {
-        return response.data;
-      }, function(response) {
-        if (response.message) {
-          return response.message;
-        } else {
-          return $q.reject(
-            'The request failed. Please check your browser log.');
+      return jsend({
+        method: 'GET',
+        url: '/api/drugs',
+        params: query
+      }).then(
+        function(response) {
+          return response.data;
+        },
+        function(response) {
+          alert(
+            'The search request failed. Please check your browser log.'
+          );
         }
-      });
-      return deferred.promise;
+      );
     }
 
     function images() {
-      return api.images.get().then(function(response) {
-        return response.data;
-      });
+      return jsend({
+        method: 'GET',
+        url: '/api/carousel'
+      }).then(
+        function(response) {
+          return response.data;
+        }
+      );
     }
 
     function names() {
-      return api.names.get().then(function(response) {
-        return response.data;
-      });
+      return jsend({
+        method: 'GET',
+        url: '/api/carousel/terms'
+      }).then(
+        function(response) {
+          return response.data;
+        }
+      );
     }
 
     function subscribe(email, query, unsubscribeLink) {
-      return api.subscribe.put({
-        email: vm.email,
-        query: $scope.query,
-        unsubscribeLink: unsubscribeLink
+      return jsend({
+        method: 'PUT',
+        url: '/api/subscribe',
+        data: {
+          email: email,
+          query: query,
+          unsubscribeLink: unsubscribeLink
+        }
       }).then(
         function(response) {
           return 'You will now receive email notifications from BE Safe.';
@@ -62,18 +72,23 @@
           return $q.reject(
             'There was an error requesting the subscription.\n\n' +
             response.message);
-        });
+        }
+      );
     }
 
     function unsubscribe(uuid) {
-      return api.unsubscribe(uuid).delete().then(
+      return jsend({
+        method: 'DELETE',
+        url: '/api/subscribe/' + uuid
+      }).then(
         function(response) {
           return 'Unsubscribed';
         },
         function(response) {
           return $q.reject('Error: ' + response.code +
             ' (' + response.message + ')');
-        });
+        }
+      );
     }
 
     return {
