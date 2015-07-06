@@ -1,4 +1,4 @@
-FROM buchananedwards/be-safe-base
+FROM buchananedwards/be-safe-base:latest
 
 EXPOSE 8081
 
