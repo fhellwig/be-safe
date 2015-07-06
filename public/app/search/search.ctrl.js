@@ -1,4 +1,4 @@
-(function(module) {
+(function (module) {
 
   function SearchCtrl($scope, $modal, $state, searchParams, besafe) {
     var vm = this;
@@ -11,27 +11,27 @@
     vm.options = searchParams.options;
     vm.criteria = searchParams.criteria();
 
-    vm.first = function() {
+    vm.first = function () {
       return vm.criteria.skip + 1
     };
 
-    vm.last = function() {
+    vm.last = function () {
       return Math.min(vm.criteria.skip + vm.criteria.limit, total);
     };
 
-    vm.total = function() {
+    vm.total = function () {
       return total;
     };
 
-    vm.atBeginning = function() {
+    vm.atBeginning = function () {
       return vm.criteria.skip === 0;
     };
 
-    vm.atEnd = function() {
+    vm.atEnd = function () {
       return vm.last() >= total;
     };
 
-    vm.prev = function() {
+    vm.prev = function () {
       vm.criteria.skip -= vm.criteria.limit;
       $state.go('app.search', vm.criteria, {
         notify: false
@@ -39,7 +39,7 @@
       doSearch(vm.criteria);
     };
 
-    vm.next = function() {
+    vm.next = function () {
       vm.criteria.skip += vm.criteria.limit;
       $state.go('app.search', vm.criteria, {
         notify: false
@@ -65,7 +65,7 @@
       return query;
     }
 
-    vm.search = function(refreshPage) {
+    vm.search = function (refreshPage) {
       vm.criteria.skip = 0;
       if (refreshPage) {
         $state.go('app.search', vm.criteria);
@@ -81,21 +81,21 @@
       if (!criteria.brand) return;
       var query = createQuery(criteria);
       vm.waiting = true;
-      besafe.search(query).then(function(data) {
+      besafe.search(query).then(function (data) {
         total = data.total;
         vm.request = angular.copy(criteria);
         vm.results = data.results;
-      }, function(message) {
+      }, function (message) {
         total = 0;
         vm.request = null;
         vm.results = null;
         vm.message = message;
-      }).finally(function() {
+      }).finally(function () {
         vm.waiting = false;
       });
     }
 
-    vm.subscribe = function() {
+    vm.subscribe = function () {
       $scope.query = createQuery(vm.criteria);
       $modal.open({
         templateUrl: 'app/search/subscribe.html',
@@ -104,7 +104,7 @@
       });
     };
 
-    vm.report = function(report) {
+    vm.report = function (report) {
       $scope.report = report;
       $scope.query = createQuery(vm.criteria);
       $modal.open({
@@ -133,18 +133,18 @@
 
     // Get the search terms for typeahead.
     vm.searchTerms = [];
-    besafe.names().then(function(names) {
+    besafe.names().then(function (names) {
       vm.searchTerms = names;
     });
-    vm.typeaheadContains = function(str, val) {
+    vm.typeaheadContains = function (str, val) {
       return str.indexOf(val.toLowerCase()) >= 0;
     };
-    vm.typeaheadSelected = function(term) {
+    vm.typeaheadSelected = function (term) {
       vm.criteria.brand = term;
-      vm.search();
+      vm.search(true); // trigger a state change notification
     };
 
-    vm.share = function(result) {
+    vm.share = function (result) {
       vm.shared = result;
     };
 

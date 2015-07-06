@@ -8,6 +8,8 @@
     besafe.version().then(function(version) {
       vm.version = version;
     });
+
+    vm.isCollapsed = true;
   }
 
   module.controller('HeaderCtrl', HeaderCtrl);

@@ -17,26 +17,41 @@ This URL is an alias to the actual deployed application running on Amazon Web Se
 
 The BE Safe application can be run on any platform supporting Node.js. Here is the installation procedure:
 
-```  
+#### Standalone Node Installation
 
-**From a server running Node.JS:**
+Prerequisites
 
-install git  
-open a command prompt or terminal and type the following commands  
-git clone -b dev https://github.com/buchanan-edwards/BE-Safe.git target_dir/  
-cd target_dir/  
-npm install -g gulp  
-npm install  
-gulp app  
-npm start  
+- [A Git client](https://git-scm.com/downloads)
+- [Node.js](https://nodejs.org/) (v0.12.6 is recommended)
+- A command prompt or terminal shell window
 
-**From a computer running Windows, Mac or Linux**  
-install boot2docker if on windows or mac   
-install the lone docker package if on linux  
-docker pull buchananedwards/be-safe  
-docker run -pXXXX:3000 -pXXXY:443 buchananedwards/be-safe  
+Clone our GitHub repository.
 
 ```
+$ git clone https://github.com/buchanan-edwards/be-safe.git
+$ cd be-safe
+```
+
+Edit the `config/default.json` file in the repository and update the four all-uppercase environment settings at the top of that file. 
+These settings specify the OpenFDA API key as well as the AWS settings used for SMTP.
+
+Install the dependencies and start the server:
+
+```bash
+$ npm install
+$ npm start
+```
+
+Point your browser to <http://localhost:8081/> and use the BE Safe application. Please note that the port can be changed in the `config/defaults.json` file.
+
+#### Docker Installation
+
+From a computer running Windows, Mac or Linux, perform the following steps:
+
+1. install boot2docker if on windows or mac   
+2. install the lone docker package if on linux  
+3. docker pull buchananedwards/be-safe  
+4. docker run -pXXXX:3000 -pXXXY:443 buchananedwards/be-safe  
 
 ## 2. Solution Approach
 
@@ -141,21 +156,21 @@ Our Agile development approach was tailored to the size, scope and timelines of 
 
 The BE team was assembled in February and conducted practice sessions to ensure we were ready to work together as an integrated team. The team came back together upon the solicitations release. We used less than 2 days to unpack, sketch and design. On the 2nd day we began daily sprints that included development, releases, demos, retrospectives and user story and backlog updates. At key points we incorporated user feedback including usability and acceptance testing.
 
-## 4. Evidence Index
-[Criteria a](https://github.com/buchanan-edwards/be-safe/tree/master/docs/evidence/criteria_a.pdf)  
-[Criteria b](https://github.com/buchanan-edwards/be-safe/tree/master/docs/evidence/criteria_b.pdf)  
-[Criteria c](https://github.com/buchanan-edwards/be-safe/tree/master/docs/evidence/criteria_c.pdf)  
-[Criteria d](https://github.com/buchanan-edwards/be-safe/tree/master/docs/evidence/criteria_d.pdf)  
-[Criteria e](https://github.com/buchanan-edwards/be-safe/tree/master/docs/evidence/criteria_e.pdf)  
-[Criteria f](https://github.com/buchanan-edwards/be-safe/tree/master/docs/evidence/criteria_f.pdf)  
-[Criteria g](https://github.com/buchanan-edwards/be-safe/tree/master/docs/evidence/criteria_g.pdf)  
-[Criteria h](https://github.com/buchanan-edwards/be-safe/tree/master/docs/evidence/criteria_h.pdf)  
-[Criteria i](https://github.com/buchanan-edwards/be-safe/tree/master/docs/evidence/criteria_i.pdf)  
-[Criteria j](https://github.com/buchanan-edwards/be-safe/tree/master/docs/evidence/criteria_j.pdf)  
-[Criteria k](https://github.com/buchanan-edwards/be-safe/tree/master/docs/evidence/criteria_k.pdf)  
-[Criteria l](https://github.com/buchanan-edwards/be-safe/tree/master/docs/evidence/criteria_l.pdf)  
-[Criteria m](https://github.com/buchanan-edwards/be-safe/tree/master/docs/evidence/criteria_m.pdf)  
-[Criteria n](https://github.com/buchanan-edwards/be-safe/tree/master/docs/evidence/criteria_n.pdf)  
-[Criteria o](https://github.com/buchanan-edwards/be-safe/tree/master/docs/evidence/criteria_o.pdf)  
-[Criteria p](https://github.com/buchanan-edwards/be-safe/tree/master/docs/evidence/criteria_p.pdf)  
-[Criteria q](https://github.com/buchanan-edwards/be-safe/tree/master/docs/evidence/criteria_q.pdf)  
+## 4. Evidence Index  
+[Criteria a](docs/evidence/criteria-a.pdf)  
+[Criteria b](docs/evidence/criteria-b.pdf)  
+[Criteria c](docs/evidence/criteria-c.pdf)  
+[Criteria d](docs/evidence/criteria-d.pdf)  
+[Criteria e](docs/evidence/criteria-e.pdf)  
+[Criteria f](docs/evidence/criteria-f.pdf)  
+[Criteria g](docs/evidence/criteria-g.pdf)  
+[Criteria h](docs/evidence/criteria-h.pdf)  
+[Criteria i](docs/evidence/criteria-i.pdf)  
+[Criteria j](docs/evidence/criteria-j.pdf)  
+[Criteria k](docs/evidence/criteria-k.pdf)  
+[Criteria l](docs/evidence/criteria-l.pdf)  
+[Criteria m](docs/evidence/criteria-m.pdf)  
+[Criteria n](docs/evidence/criteria-n.pdf)  
+[Criteria o](docs/evidence/criteria-o.pdf)  
+[Criteria p](docs/evidence/criteria-p.pdf)  
+[Criteria q](docs/evidence/criteria-q.pdf)  

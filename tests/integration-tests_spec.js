@@ -15,14 +15,18 @@ frisby.create('Testing Adverse Reaction Events GET')
     //.expectHeader('Content-Type', 'application/json; charset=utf-8')
     .expectStatus(200)
 .toss();
+<<<<<<< HEAD
+=======
 
+>>>>>>> 7906c10e051889f99ee241ef2923c992dda33757
+/*
 console.log('Testing BE Safe Website Availability')
 frisby.create('Testing BE Safe Website Availability')
     .get('https://be-safe.buchanan-edwards.com/#/')
     //.expectHeader('Content-Type', 'application/json; charset=utf-8')
     .expectStatus(200)
 .toss();
-
+*/
 console.log('Testing AWS Availability')
 frisby.create('Testing AWS Availability')
     .get('http://status.aws.amazon.com/')
