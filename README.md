@@ -47,7 +47,7 @@ Point your browser to <http://localhost:8081/> and use the BE Safe application. 
 The BE Safe application also runs on Docker technology using these steps:
 
 1. Install Boot2Docker ([Mac](http://docs.docker.com/mac/started) and [Windows](http://docs.docker.com/windows/started)) or the Docker package ([Linux](http://docs.docker.com/linux/started)).
-2. `$ boot2docker ip #` (Note for later)
+2. `$ boot2docker ip` (Note for later)
 3. `$ boot2docker ssh`
 4. `$ docker pull buchananedwards/be-safe`
 5. `docker run -p 8081:8081 -e "OPEN_FDA_API_KEY=YOUROPENFDAAPIKEY" -e "AWS_REGION=YOURAWSREGION" -e "AWS_ACCESS_KEY_ID=YOURAWSACCESSKEYID" -e "AWS_SECRET_ACCESS_KEY=YOURAWSSECRETACCESSKEY" buchananedwards/be-safe`
