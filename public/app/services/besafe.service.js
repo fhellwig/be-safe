@@ -67,7 +67,8 @@
         }
       }).then(
         function(response) {
-          return 'You will now receive email notifications from BE Safe.';
+          return
+            'You will now receive email notifications from BE Safe.';
         },
         function(response) {
           return $q.reject(
@@ -80,14 +81,13 @@
     function unsubscribe(uuid) {
       return jsend({
         method: 'DELETE',
-        url: '/api/subscribe/' + uuid
+        url: '/api/unsubscribe/' + uuid
       }).then(
         function(response) {
-          return 'Unsubscribed';
+          return response.data;
         },
         function(response) {
-          return $q.reject('Error: ' + response.code +
-            ' (' + response.message + ')');
+          return $q.reject(response.message);
         }
       );
     }
