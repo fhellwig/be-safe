@@ -35,12 +35,7 @@ Clone our GitHub repository.
 
 In the `config` directory is a `local-example.json` file. Please **copy or rename** this file to `local.json`. Then, edit this file and set your own OpenFDA API key as well as the AWS settings used for SMTP.
 
-    $ cd config
-    $ mv local-example.json local.json
-    $ <edit> local.json                 (replace <edit> with notepad, vim, or your favorite editor)
-    $ cd ..
-
-Next, install the dependencies and start the server:
+Be sure that you are still in the `be-safe` directory, then install the dependencies and start the server:
 
     $ npm install                       (this can take a few minutes)
     $ npm start                         (look at the output - it will confirm the port number)
