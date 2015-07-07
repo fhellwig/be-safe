@@ -81,7 +81,7 @@
     function unsubscribe(uuid) {
       return jsend({
         method: 'DELETE',
-        url: '/api/unsubscribe/' + uuid
+        url: '/api/subscriptions/' + uuid
       }).then(
         function(response) {
           return response.data;
