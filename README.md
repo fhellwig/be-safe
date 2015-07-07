@@ -21,29 +21,35 @@ Prerequisites
 
 - [A Git client](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org/) (v0.12.6 is recommended)
-- A command prompt or terminal shell window
+
+Work from a terminal window
+
+- **Windows**: From the Start menu, select Git > Git bash
+- **Mac**: Press Command + Space and type Terminal
+- **Linux**: Open a standard terminal window
 
 Clone our GitHub repository.
 
-```
-$ git clone https://github.com/buchanan-edwards/be-safe.git
-$ cd be-safe
-```
+    $ git clone https://github.com/buchanan-edwards/be-safe.git
+    $ cd be-safe
 
 In the `config` directory is a `local-example.json` file. Please **copy or rename** this file to `local.json`. Then, edit this file and set your own OpenFDA API key as well as the AWS settings used for SMTP.
 
+    $ cd config
+    $ mv local-example.json local.json
+    $ notepad local.json                 (edit the file using notepad)
+    $ cd ..
+
 Next, install the dependencies and start the server:
 
-```bash
-$ npm install
-$ npm start
-```
+    $ npm install
+    $ npm start
 
 Point your browser to <http://localhost:8081/> and use the BE Safe application. Please note that the port can be changed in the `config/defaults.json` file.
 
 #### Docker Installation
 
-The BE Safe application can be run from any computer that supports Docker using the following steps:
+The BE Safe application can also be run using Docker technology using the following steps:
 
 1. Install Boot2Docker ([Mac OS X](http://docs.docker.com/mac/started) and [Windows](http://docs.docker.com/windows/started)) or the Docker package ([Linux](http://docs.docker.com/linux/started)).
 2. `$ boot2docker ip #` (Write this down for later)
