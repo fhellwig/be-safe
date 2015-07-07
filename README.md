@@ -13,7 +13,7 @@ We also co-deploy to an [Azure Web App](https://be-safe.azurewebsites.net) that 
 
 ### 1.1 Prototype Installation
 
-The BE Safe application can be run on any platform supporting Node.js. Here is the installation procedure:
+The BE Safe application runs on any platform supporting Node.js.
 
 #### Standalone Node Installation
 
@@ -33,21 +33,21 @@ Clone our GitHub repository.
     $ git clone https://github.com/buchanan-edwards/be-safe.git
     $ cd be-safe
 
-In the `config` directory is a `local-example.json` file. Please **copy or rename** this file to `local.json`. Then, edit this file and set your own OpenFDA API key as well as the AWS settings used for SMTP.
+In the `config` directory is a `local-example.json` file. Please **copy or rename** this file to `local.json`. Then, edit this file and set your own OpenFDA API key and the AWS settings used for SMTP.
 
 Install the dependencies and start the server from the `be-safe` directory:
 
     $ npm install
     $ npm start
 
-Point your browser to <http://localhost:8081/> and use the BE Safe application. Please note that the port can be changed in the `config/defaults.json` file.
+Point your browser to <http://localhost:8081/> and use the BE Safe application. Note that the port can be changed in the `config/defaults.json` file.
 
 #### Docker Installation
 
-The BE Safe application can also be run using Docker technology using the following steps:
+The BE Safe application also runs on Docker technology using these steps:
 
-1. Install Boot2Docker ([Mac OS X](http://docs.docker.com/mac/started) and [Windows](http://docs.docker.com/windows/started)) or the Docker package ([Linux](http://docs.docker.com/linux/started)).
-2. `$ boot2docker ip #` (Write this down for later)
+1. Install Boot2Docker ([Mac](http://docs.docker.com/mac/started) and [Windows](http://docs.docker.com/windows/started)) or the Docker package ([Linux](http://docs.docker.com/linux/started)).
+2. `$ boot2docker ip #` (Note for later)
 3. `$ boot2docker ssh`
 4. `$ docker pull buchananedwards/be-safe`
 5. `docker run -p 8081:8081 -e "OPEN_FDA_API_KEY=YOUROPENFDAAPIKEY" -e "AWS_REGION=YOURAWSREGION" -e "AWS_ACCESS_KEY_ID=YOURAWSACCESSKEYID" -e "AWS_SECRET_ACCESS_KEY=YOURAWSSECRETACCESSKEY" buchananedwards/be-safe`
@@ -64,11 +64,11 @@ Our solution followed these principles:
 
 4. **DevOps** - Make continuous build, test, and deployment an integral part of the project workflow and couple the results directly into our product backlog.
 
-Each of these principles are discussed below, along with the required points outlined in the RFQ.
+These principles are discussed below, along with the required points outlined in the RFQ.
 
 ### 2.1 The Team
 
-Our team was led by Brian Shafer who was responsible for the overall operation of the prototype team as defined in our project charter. The team included the following GSA 18F Labor Categories.
+Brian Shafer led our team and was responsible for the overall operation of the prototype team as defined in our project charter. The team included the following GSA 18F Labor Categories.
 
 - Product Manager  
 - Technical Architect  
@@ -81,15 +81,15 @@ Our team was led by Brian Shafer who was responsible for the overall operation o
 - Delivery Manager  
 - Business Analyst
 
-The labor categories and mapping to our GSA Schedule 70 is fully documented and was submitted to eBuy as directed in the RFQ.
+The labor categories and mapping to our GSA Schedule 70 are fully documented and were submitted to eBuy per the RFQ.
 
 The team provided technical competence via an Agile process to achieve the best *product*.
 
 We incorporated the following 18F guiding principles into our approach.
 
-1. **Put the needs of users first** - We had multiple team members running the application during our sprints, providing immediate usability feedback and noting any issues on mobile devices.
+1. **Put the needs of users first** - Multiple team members ran the application during our sprints, providing immediate usability feedback and noting any issues on mobile devices.
 
-2. **Release early, iteratively, and often** - We continuously auto-deployed from our Git development branch so any deployment issues would be known immediately. This gave our sample users a periodically and frequently refreshed build that they could evaluate.
+2. **Release early, iteratively, and often** - We continuously auto-deployed from our Git development branch so any deployment issues would be known immediately. This gave our sample users a periodically and frequently refreshed build to evaluate.
 
 3. **Don’t slow down delivery** - Instead of developing the API first and then the user interface, we worked in parallel, taking a holistic approach so that a working application could be delivered and tested sooner rather than later.
 
