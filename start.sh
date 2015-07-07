@@ -1,8 +1,8 @@
 #
-echo "starting the application set up....."
+echo "starting the application set up...."
 cd /besafe
 
-echo "cleaning house...."
+echo "cleaning house..."
 rm -rf wwwroot/
 
 echo "getting most recent code...."
