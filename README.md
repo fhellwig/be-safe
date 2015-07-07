@@ -51,7 +51,7 @@ The BE Safe application also runs on Docker technology using these steps:
 3. `$ boot2docker ssh`
 4. `$ docker pull buchananedwards/be-safe`
 5. `docker run -p 8081:8081 -e "OPEN_FDA_API_KEY=YOUROPENFDAAPIKEY" -e "AWS_REGION=YOURAWSREGION" -e "AWS_ACCESS_KEY_ID=YOURAWSACCESSKEYID" -e "AWS_SECRET_ACCESS_KEY=YOURAWSSECRETACCESSKEY" buchananedwards/be-safe`  
-6. The Docker URL is http://<noted IP>:8081.    
+6. The Docker URL is http://noted IP:8081.    
 
 ## 2. Solution Approach
 
