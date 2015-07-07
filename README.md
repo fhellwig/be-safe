@@ -50,7 +50,8 @@ The BE Safe application also runs on Docker technology using these steps:
 2. `$ boot2docker ip` (Note for later)
 3. `$ boot2docker ssh`
 4. `$ docker pull buchananedwards/be-safe`
-5. `docker run -p 8081:8081 -e "OPEN_FDA_API_KEY=YOUROPENFDAAPIKEY" -e "AWS_REGION=YOURAWSREGION" -e "AWS_ACCESS_KEY_ID=YOURAWSACCESSKEYID" -e "AWS_SECRET_ACCESS_KEY=YOURAWSSECRETACCESSKEY" buchananedwards/be-safe`
+5. `docker run -p 8081:8081 -e "OPEN_FDA_API_KEY=YOUROPENFDAAPIKEY" -e "AWS_REGION=YOURAWSREGION" -e "AWS_ACCESS_KEY_ID=YOURAWSACCESSKEYID" -e "AWS_SECRET_ACCESS_KEY=YOURAWSSECRETACCESSKEY" buchananedwards/be-safe`  
+6. The Docker URL is http://<noted IP>:8081.    
 
 ## 2. Solution Approach
 
@@ -68,7 +69,7 @@ These principles are discussed below, along with the required points outlined in
 
 ### 2.1 The Team
 
-Brian Shafer led our team and was responsible for the overall operation of the prototype team as defined in our project charter. The team included the following GSA 18F Labor Categories.
+Brian Shafer was responsible for the overall operation of the prototype team as defined in our project charter. The team included the following GSA 18F Labor Categories.
 
 - Product Manager  
 - Technical Architect  
