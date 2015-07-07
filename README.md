@@ -37,7 +37,7 @@ In the `config` directory is a `local-example.json` file. Please **copy or renam
 
     $ cd config
     $ mv local-example.json local.json
-    $ notepad local.json                (edit the file using notepad)
+    $ <edit> local.json                 (replace <edit> with notepad, vim, or your favorite editor)
     $ cd ..
 
 Next, install the dependencies and start the server:
