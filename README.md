@@ -45,7 +45,7 @@ Point your browser to <http://localhost:8081/> and use the BE Safe application. 
 
 The BE Safe application can be run from any computer that supports Docker using the following steps:
 
-1. install boot2docker if on windows or mac; install the lone docker package if on linux 
+1. Install Boot2Docker ([Mac OS X](http://docs.docker.com/mac/started) and [Windows](http://docs.docker.com/windows/started)) or the Docker package ([Linux](http://docs.docker.com/linux/started)).
 2. boot2docker ip # (Write this down for later)
 3. boot2docker ssh
 4. docker pull buchananedwards/be-safe
